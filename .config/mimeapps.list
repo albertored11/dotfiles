@@ -1,0 +1,42 @@
+[Added Associations]
+audio/AMR=mpv.desktop;
+audio/aac=mpv.desktop;
+audio/mp4=mpv.desktop;
+audio/mpeg=mpv.desktop;
+audio/x-opus+ogg=mpv.desktop;
+audio/x-wav=mpv.desktop;
+text/markdown=visual-studio-code.desktop;
+text/plain=visual-studio-code.desktop;code-oss.desktop;
+video/mp4=mpv.desktop;
+video/x-matroska=mpv.desktop;
+video/x-msvideo=mpv.desktop;
+x-scheme-handler/tg=userapp-Telegram Desktop-QP92V0.desktop;
+text/x-java=visual-studio-code.desktop;
+application/octet-stream=visual-studio-code.desktop;
+
+[Default Applications]
+application/bmpr=balsamiq-wireframes-bmpr.desktop
+audio/AMR=mpv.desktop;
+audio/aac=mpv.desktop;
+audio/mp4=mpv.desktop;
+audio/mpeg=mpv.desktop;
+audio/x-opus+ogg=mpv.desktop;
+audio/x-wav=mpv.desktop;
+text/html=chromium.desktop
+text/markdown=visual-studio-code.desktop;
+text/plain=visual-studio-code.desktop;
+video/mp4=mpv.desktop;
+video/x-matroska=mpv.desktop;
+video/x-msvideo=mpv.desktop;
+x-scheme-handler/balsamiqwireframes=balsamiq-wireframes-url.desktop
+x-scheme-handler/callto=skypeforlinux.desktop
+x-scheme-handler/mailto=chromium.desktop
+x-scheme-handler/skype=skypeforlinux.desktop
+x-scheme-handler/tel=skypeforlinux.desktop
+x-scheme-handler/tg=userapp-Telegram Desktop-QP92V0.desktop
+x-scheme-handler/webcal=chromium.desktop
+image/png=feh.desktop
+image/jpg=feh.desktop
+image/jpeg=feh.desktop
+application/pdf=qpdfview.desktop
+application/lrf=calibre-lrfviewer.desktop

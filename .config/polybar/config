@@ -1,0 +1,158 @@
+[colors]
+;background = #80282a36
+background = #00000000
+;background-alt = #8044475a
+background-alt = #80676a7e
+foreground = #f8f8f2
+foreground-alt = #6272a4
+primary = #bd93f9
+secondary = #ff79c6
+alert = #ff5555
+
+[bar/empty]
+width = 100%
+height = 28
+
+background = ${colors.background}
+
+modules-left = xwindow
+
+bottom = true
+
+[bar/main]
+width = 1852
+height = 28
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 2
+line-color = ${colors.primary}
+
+padding-left = 5
+padding-right = 2
+
+module-margin = 2
+
+font-0 = Inter,Inter Medium:style=Medium,Regular:size=10;3
+font-1 = JetBrainsMono Nerd Font Mono:style=Medium,Regular:size=18;5
+font-2 = JetBrainsMono Nerd Font Mono:style=Medium,Regular:size=10;3
+font-3 = JetBrainsMono Nerd Font Mono:style=Medium,Regular:size=14;4
+
+modules-left = xwindow
+modules-right = player-mpris-tail bspwm pulseaudio
+
+tray-position = right
+tray-padding = 2
+
+wm-restack = bspwm
+
+cursor-click = pointer
+
+bottom = true
+
+[bar/clock]
+width = 68
+height = 28
+
+offset-x = 1852
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+padding = 2
+
+font-0 = Inter,Inter Medium:style=Medium,Regular:size=14;4
+
+modules-center = date
+
+wm-restack = bspwm
+
+cursor-click = pointer
+
+override-redirect = true
+
+bottom = true
+
+[module/xwindow]
+type = internal/xwindow
+label = %title%
+label-maxlen = 100
+
+[module/bspwm]
+type = internal/bspwm
+
+label-dimmed-focused = %index%
+label-dimmed-focused-background = ${colors.background-alt}
+label-dimmed-focused-underline = ${colors.primary}
+label-dimmed-focused-padding = 3
+
+label-focused = %index%
+label-focused-background = ${colors.background-alt}
+label-focused-underline= ${colors.secondary}
+label-focused-padding = 3
+
+label-occupied = %index%
+label-occupied-padding = 3
+
+label-urgent = %index%!
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 3
+
+label-empty = %index%
+label-empty-foreground = ${colors.foreground-alt}
+label-empty-padding = 3
+
+pin-workspaces = false
+
+enable-scroll = false
+
+[module/date]
+type = internal/date
+
+time = %H:%M
+
+label = %time%
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+use-ui-max = false
+
+format-volume = <ramp-volume>  <label-volume>
+
+label-volume = %percentage% %
+
+label-muted = ﱝ
+
+ramp-volume-0 = 奄
+ramp-volume-1 = 奔
+ramp-volume-2 = 墳
+
+ramp-volume-0-font = 3
+ramp-volume-1-font = 4
+ramp-volume-2-font = 2
+
+click-right = pavucontrol-qt
+
+[module/player-mpris-tail]
+type = custom/script
+exec = ~/.config/polybar/player-mpris-tail.py -b chromium --icon-playing '喇' --icon-paused '' --icon-stopped 'ﭥ' -f '{icon}  {:t25:{artist}:} - {:t50:{title}:}'
+tail = true
+
+[module/popup-calendar]
+type = custom/script
+exec = ~/.config/polybar/popup-calendar.sh
+interval = 5
+click-left = ~/.config/polybar/popup-calendar.sh --popup &
+
+label-font = 2
+
+[settings]
+screenchange-reload = true
+
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+
+; vim:ft=dosini
