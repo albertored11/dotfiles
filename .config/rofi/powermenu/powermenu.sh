@@ -85,14 +85,14 @@ case $chosen in
 		#elif [[ -f /usr/bin/betterlockscreen ]]; then
 		#	betterlockscreen -l
 		#fi
-        i3lock -e -t -i ~/Nextcloud/Fondos\ de\ pantalla/Somali\ to\ Mori\ no\ Kamisama/Screenshot_20210101_173118.png
+        $HOME/.local/bin/lock-screen
         ;;
     $suspend)
 		#ans=$(confirm_exit &)
 		#if [[ $ans == "yes" || $ans == "YES" || $ans == "y" || $ans == "Y" ]]; then
 		#	mpc -q pause
 		#	amixer set Master mute
-			i3lock -e -t -i ~/Nextcloud/Fondos\ de\ pantalla/Somali\ to\ Mori\ no\ Kamisama/Screenshot_20210101_173118.png && systemctl suspend
+        $HOME/.local/bin/lock-screen && systemctl suspend
 		#elif [[ $ans == "no" || $ans == "NO" || $ans == "n" || $ans == "N" ]]; then
 		#	exit 0
         #else
