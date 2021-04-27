@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+
+usage() {
+    echo "usage: $(basename "$0") <fullscr/crop/activewin/mon1/mon2> <dir>" >&2
+    exit 1
+}
+
+[[ "$#" -eq 2 ]] || usage
+
+filename="screenshot_$(date +%Y%m%d_%H%M%S).png"
+
+case "$1" in
+    fullscr)
+        args=""
+        desc="Pantalla completa capturada"
+    ;;
+    crop)
+        args=" -s"
+        desc="Selección capturada"
+    ;;
+    activewin)
+        args=" -i $(xdotool getactivewindow)"
+        desc="Ventana activa capturada"
+    ;;
+    mon1)
+        args=" -g 1920x1080"
+        desc="Monitor 1 capturado"
+    ;;
+    mon2)
+        args=" -g 1920x1080+1920"
+        desc="Monitor 2 capturado"
+    ;;
+    *)
+        usage
+    ;;
+esac
+
+maim$args "$2/$filename" || exit 1
+
+action="$(dunstify -a "maim" -A "default,openFM" "$desc"$'\n'"$filename")"
+
+case "$action" in
+    default)
+        pcmanfm-qt "$2"
+    ;;
+esac

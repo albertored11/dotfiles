@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+
+i3lock -e -t -i /home/herbort/Nextcloud/Fondos\ de\ pantalla/Somali\ to\ Mori\ no\ Kamisama/Screenshot_20210101_173118.png
+sleep 1
+xset dpms force off

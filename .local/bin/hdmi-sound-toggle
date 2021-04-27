@@ -1,0 +1,12 @@
+#!/bin/bash
+
+CARD_PATH_STATUS=$(cat /sys/class/drm/card0/card0-DP-1/status)
+
+if [[ $CARD_PATH_STATUS == connected ]]; then
+    AUDIO_OUTPUT="hdmi-stereo"
+else
+    AUDIO_OUTPUT="analog-stereo"
+fi
+
+echo selecting output $AUDIO_OUTPUT
+pactl set-card-profile 0 output:$AUDIO_OUTPUT+input:analog-stereo

@@ -1,0 +1,25 @@
+[Added Associations]
+application/x-yaml=visual-studio-code.desktop;
+audio/mp4=mpv.desktop;
+text/x-c++src=visual-studio-code.desktop;
+text/x-java=visual-studio-code.desktop;code-oss.desktop;
+x-scheme-handler/tg=userapp-Telegram Desktop-N6NZY0.desktop;
+application/pdf=qpdfview.desktop;
+text/css=visual-studio-code.desktop;
+text/plain=visual-studio-code.desktop;
+text/markdown=jetbrains-idea.desktop;
+
+[Default Applications]
+application/x-yaml=visual-studio-code.desktop;
+audio/mp4=mpv.desktop;
+text/html=google-chrome.desktop
+text/x-c++src=visual-studio-code.desktop;
+text/x-java=visual-studio-code.desktop;
+x-scheme-handler/callto=skypeforlinux.desktop
+x-scheme-handler/skype=skypeforlinux.desktop
+x-scheme-handler/tel=skypeforlinux.desktop
+x-scheme-handler/tg=userapp-Telegram Desktop-N6NZY0.desktop
+x-scheme-handler/http=google-chrome.desktop
+x-scheme-handler/https=google-chrome.desktop
+x-scheme-handler/about=google-chrome.desktop
+x-scheme-handler/unknown=google-chrome.desktop
