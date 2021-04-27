@@ -48,7 +48,6 @@ with 2x 21.5" 1920x1080 @ 60 Hz HP EliteDisplay E223 monitors.
 | **status bar** | polybar |
 | **shell** | fish |
 | **fish** | fisher |
-| **brightness controller** | brightnessctl |
 | **archiver** | lxqt-archiver + zip + unzip |
 | **file manager** | pcmanfm-qt (+ qt5-translations) + ranger |
 | **terminal** | kitty |

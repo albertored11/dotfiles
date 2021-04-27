@@ -174,7 +174,7 @@ super + shift + y
 	bspc node @/ --balance
 
 # Flip layout vertically/horizontally
-super + {_,shift + }s
+super + {_,shift + }z
     bspc node @/ --flip {vertical,horizontal}
 
 # Rotate desktop
