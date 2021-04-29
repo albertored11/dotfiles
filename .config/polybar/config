@@ -183,8 +183,6 @@ exec = ~/.config/polybar/popup-calendar.sh
 interval = 5
 click-left = ~/.config/polybar/popup-calendar.sh --popup &
 
-label-font = 2
-
 [settings]
 screenchange-reload = true
 
