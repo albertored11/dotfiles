@@ -30,7 +30,7 @@ numlockx &
 wmname LG3D &
 xsetroot -cursor_name left_ptr &
 xmodmap $HOME/.Xmodmap &
-xcape -e "Super_L=Alt_L|space" &
+xcape -e "Super_L=Super_L|Escape" &
 $HOME/.fehbg &
 blueman-applet &
 $HOME/.config/polybar/launch.sh &
