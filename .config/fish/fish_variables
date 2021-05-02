@@ -19,6 +19,17 @@ SETUVAR --export QT_QPA_PLATFORMTHEME:qt5ct
 SETUVAR --export QT_STYLE_OVERRIDE:kvantum\x2ddark
 SETUVAR --export SXHKD_SHELL:/usr/bin/sh
 SETUVAR --export VISUAL:vim
+SETUVAR --export XDG_CACHE_HOME:/home/herbort/\x2ecache
+SETUVAR --export XDG_CONFIG_DIRS:/etc/xdg
+SETUVAR --export XDG_CONFIG_HOME:/home/herbort/\x2econfig
+SETUVAR --export XDG_DATA_DIRS:/usr/local/share\x3a/usr/share
+SETUVAR --export XDG_DATA_HOME:/home/herbort/\x2elocal/share
+SETUVAR --export XDG_DESKTOP_DIR:/home/herbort/Escritorio
+SETUVAR --export XDG_DOCUMENTS_DIR:/home/herbort/Documentos
+SETUVAR --export XDG_DOWNLOAD_DIR:/home/herbort/Descargas
+SETUVAR --export XDG_MUSIC_DIR:/home/herbort/M\u00fasica
+SETUVAR --export XDG_PICTURES_DIR:/home/herbort/Im\u00e1genes
+SETUVAR --export XDG_VIDEOS_DIR:/home/herbort/V\u00eddeos
 SETUVAR ZO_CMD:zo
 SETUVAR Z_CMD:z
 SETUVAR Z_DATA:/home/herbort/\x2elocal/share/z/data
