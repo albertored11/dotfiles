@@ -13,6 +13,7 @@ video/x-msvideo=mpv.desktop;
 x-scheme-handler/tg=userapp-Telegram Desktop-QP92V0.desktop;
 text/x-java=visual-studio-code.desktop;
 application/octet-stream=visual-studio-code.desktop;
+application/pdf=org.pwmt.zathura.desktop;
 
 [Default Applications]
 application/bmpr=balsamiq-wireframes-bmpr.desktop
@@ -38,5 +39,4 @@ x-scheme-handler/webcal=chromium.desktop
 image/png=feh.desktop
 image/jpg=feh.desktop
 image/jpeg=feh.desktop
-application/pdf=qpdfview.desktop
 application/lrf=calibre-lrfviewer.desktop
