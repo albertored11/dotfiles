@@ -9,6 +9,7 @@ bspc config window_gap          10
 
 bspc config split_ratio             0.50
 bspc config borderless_monocle      true
+bspc config gapless_monocle         true
 bspc config focus_follows_pointer   true
 bspc config single_monocle          true
 bspc config automatic_scheme        alternate
@@ -25,12 +26,9 @@ bspc rule -a Pavucontrol        state=floating
 bspc rule -a Blueman-manager    state=floating
 bspc rule -a Zathura            state=tiled
 
-setxkbmap -layout es &
-numlockx &
 wmname LG3D &
 xsetroot -cursor_name left_ptr &
-xmodmap $HOME/.Xmodmap &
-xcape -e "Super_L=Alt_L|space" &
+xcape -e "Super_L=Super_L|Escape" &
 $HOME/.fehbg &
 blueman-applet &
 $HOME/.config/polybar/launch.sh &
@@ -41,5 +39,3 @@ nextcloud &
 libinput-gestures &
 nm-applet &
 $HOME/.config/redshift/launch.sh &
-
-sleep 1; bspc config gapless_monocle true

@@ -1,4 +1,3 @@
 function fileio
-curl -F "file=@$argv[1]" https://file.io
-echo
+curl -sF "file=@$argv[1]" https://file.io | jq -Mr '."link"'
 end
