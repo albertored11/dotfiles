@@ -25,11 +25,8 @@ bspc rule -a Pavucontrol        state=floating
 bspc rule -a Blueman-manager    state=floating
 bspc rule -a Zathura            state=tiled
 
-setxkbmap -layout es &
-numlockx &
 wmname LG3D &
 xsetroot -cursor_name left_ptr &
-xmodmap $HOME/.Xmodmap &
 xcape -e "Super_L=Super_L|Escape" &
 $HOME/.fehbg &
 blueman-applet &
