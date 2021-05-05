@@ -31,7 +31,7 @@ xcape -e "Super_L=Super_L|Escape" &
 $HOME/.fehbg &
 blueman-applet &
 $HOME/.config/polybar/launch.sh &
-picom &
+picom --experimental-backends &
 unclutter &
 dunst &
 nextcloud &
