@@ -23,7 +23,7 @@ with 2x 21.5" 1920x1080 @ 60 Hz HP EliteDisplay E223 monitors.
 | ---- | --- |
 | **window manager** | bspwm |
 | **hotkey daemon** | sxhkd + xcape |
-| **compositor** | picom-ibhagwan-git |
+| **compositor** | picom-git |
 | **night color** | redshift-minimal |
 | **system font** | inter-font |
 | **monospaced font** | ttf-jetbrains-mono + nerd-fonts-jetbrains-mono |
