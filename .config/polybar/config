@@ -40,12 +40,12 @@ font-2 = JetBrainsMono Nerd Font Mono:style=Medium,Regular:size=10;3
 font-3 = JetBrainsMono Nerd Font Mono:style=Medium,Regular:size=14;4
 
 modules-left = xwindow
-modules-right = player-mpris-tail bspwm pulseaudio
+modules-right = player-mpris-tail i3 pulseaudio
 
 tray-position = right
 tray-padding = 2
 
-wm-restack = bspwm
+;wm-restack = bspwm
 
 cursor-click = pointer
 
@@ -66,7 +66,8 @@ font-0 = Inter,Inter Medium:style=Medium,Regular:size=14;4
 
 modules-center = date
 
-wm-restack = bspwm
+;wm-restack = bspwm
+wm-restack = i3
 
 cursor-click = pointer
 
@@ -102,6 +103,30 @@ label-urgent-padding = 3
 label-empty = %index%
 label-empty-foreground = ${colors.foreground-alt}
 label-empty-padding = 3
+
+pin-workspaces = false
+
+enable-scroll = false
+
+[module/i3]
+type = internal/i3
+
+index-sort = true
+
+label-unfocused = %index%
+label-unfocused-padding = 3
+
+label-visible = %index%
+label-visible-padding = 3
+
+label-focused = %index%
+label-focused-background = ${colors.background-alt}
+label-focused-underline= ${colors.secondary}
+label-focused-padding = 3
+
+label-urgent = %index%!
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 3
 
 pin-workspaces = false
 
