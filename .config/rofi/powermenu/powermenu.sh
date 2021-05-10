@@ -115,6 +115,7 @@ case $chosen in
         #else
 		#	msg
         #fi
-        bspc quit
+        #bspc quit
+        i3-msg exit
         ;;
 esac
