@@ -19,6 +19,12 @@ bindsym $mod+e exec --no-startup-id pcmanfm-qt
 # program launcher
 bindsym $mod+Escape exec --no-startup-id $HOME/.config/rofi/launchers/misc/launcher.sh
 
+# gcalcli month agenda calendar
+bindsym $mod+shift+a exec --no-startup-id kitty --hold gcalcli calm --monday; exec --no-startup-id "sh -c 'sleep 0.2; i3-msg floating enable'"
+
+# lyrics-in-terminal
+bindsym $mod+shift+l exec --no-startup-id kitty lyrics
+
 # adjust volume
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q sset Master unmute && amixer -q sset Master 5%+
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q sset Master unmute && amixer -q sset Master 5%-
