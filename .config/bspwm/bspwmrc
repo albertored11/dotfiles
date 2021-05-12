@@ -30,7 +30,7 @@ xsetroot -cursor_name left_ptr &
 xcape -e "Super_L=Super_L|Escape" &
 $HOME/.fehbg &
 blueman-applet &
-$HOME/.config/polybar/launch.sh &
+$HOME/.config/polybar/launch-bspwm.sh &
 picom --experimental-backends &
 unclutter &
 dunst &

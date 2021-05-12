@@ -198,7 +198,7 @@ client.background       #F8F8F2
 exec --no-startup-id xcape -e "Super_L=Super_L|Escape" &
 exec --no-startup-id $HOME/.fehbg &
 exec --no-startup-id blueman-applet &
-exec --no-startup-id $HOME/.config/polybar/launch.sh &
+exec --no-startup-id $HOME/.config/polybar/launch-i3.sh &
 exec --no-startup-id picom --experimental-backends &
 exec --no-startup-id unclutter &
 exec --no-startup-id dunst &
