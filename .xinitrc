@@ -17,4 +17,4 @@ fi
 
 numlockx &
 
-exec i3
+exec bspwm

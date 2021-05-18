@@ -14,6 +14,26 @@ super + c
 super + e
     pcmanfm-qt
 
+# spotify
+super + shift + s
+    spotify
+
+# discord
+super + shift + d
+    discord
+
+# code
+super + shift + c
+    code
+
+# idea
+super + shift + i
+    intellij-idea-ultimate-edition
+
+# clion
+super + shift + o
+    clion
+
 # program launcher
 super + Escape
     $HOME/.config/rofi/launchers/misc/launcher.sh
@@ -52,6 +72,14 @@ super + l
 {ctrl + alt + Delete,XF86PowerOff,XF86Sleep}
     $HOME/.config/rofi/powermenu/powermenu.sh
 
+# gcalcli month agenda calendar
+super + shift + a 
+    kitty --hold gcalcli calm --monday
+
+# lyrics-in-terminal
+super + shift + l
+    kitty lyrics
+
 #
 # bspwm hotkeys
 #
@@ -78,45 +106,57 @@ super + g
 
 # set the window state
 super + {i,o,f}
-	bspc node -t {tiled,floating,fullscreen}
+    bspc node -t {tiled,floating,fullscreen}
+
+# hide focused/brother window
+super + {_,alt + } h
+    bspc node {_,$(bspc query -N -n @brother.!hidden)} -g hidden=on
+
+# unhide and focus window/group
+super + shift + {_,alt + } + h
+    hidden=$(bspc query -N -n @brother.hidden{.window,_}); \
+    [[ -z $hidden ]] && hidden=$(bspc query -N -n any.hidden.local{.window,_}); \
+    bspc node $hidden -g hidden=off && bspc node -f $hidden
 
 #
 # focus/swap
 #
 
-# focus/swap the node in the given direction
-super + {_,shift + }{Left,Down,Up,Right}
-	bspc node -{f,s} {west,south,north,east}
+# focus/swap/send to the node in the given direction
+super + {_,shift + ,shift + alt + }{Left,Down,Up,Right}
+	bspc node -{f,s,n} {west,south,north,east}
+
+# focus the node for the given path jump
+super + {a,x,comma,period}
+    bspc node -f @{parent,brother,first,second}
 
 # focus the next/previous window in the current desktop
 alt + {_,shift + }Tab
 	bspc node -f {next,prev}.local.!hidden.window
 
 # focus the next/previous desktop
-ctrl + super + {Left,Right}
+ctrl + super + {Prior,Next}
 	bspc desktop -f {prev,next}.local
 
 # focus the next desktop in both monitors
-ctrl + super + alt + Right
+ctrl + super + alt + Next
     bspc desktop -f next.local && bspc monitor -f next \
     && bspc desktop -f next.local && bspc monitor -f next
 
 # focus the previous desktop in both monitors
-ctrl + super + alt + Left
+ctrl + super + alt + Prior
     bspc desktop -f prev.local && bspc monitor -f next \
     && bspc desktop -f prev.local && bspc monitor -f next
 
-# send to and focus the previous desktop
-ctrl + alt + Left
-    bspc node -d prev.local --follow
-
-# send to and focus the next desktop
-ctrl + alt + Right
-    bspc node -d next.local --follow
+# send to and focus the next/previous desktop
+ctrl + alt + {Prior,Next}
+    bspc node -d {prev,next}.local --follow
 
 # focus or send to the given desktop
-super + {_,shift + }{0-9}
-	bspc {desktop -f,node -d} '^{0-9}'
+super + {_,shift + }{1-9}
+	bspc {desktop -f,node -d} '^{1-9}'
+super + {_,shift + }0
+    bspc {desktop -f,node -d} 10
 
 # send to the next monitor
 super + less
@@ -127,7 +167,7 @@ super + less
 #
 
 # preselect the direction
-super + ctrl + {h,j,k,l}
+super + ctrl + {Left,Down,Up,Right}
 	bspc node -p {west,south,north,east}
 
 # cancel the preselection for the focused node
@@ -157,23 +197,35 @@ super + alt + shift + {Left,Down,Up,Right}
     bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
 
 # move a floating window
-super + {a,s,w,d}
+super + alt + {a,s,w,d}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
+
+#
+# tabbed
+#
+
+# add to tabbed container
+ctrl + alt + {Left,Down,Up,Right}
+    tabc add {west,south,north,east}
+
+# remove from tabbed container
+super + z
+    tabc remove
 
 #
 # others
 #
 
 # Make split ratios equal
-super + y
+super + b
     bspc node @/ --equalize
 
 # Make split ratios balanced
-super + shift + y
+super + shift + b
 	bspc node @/ --balance
 
 # Flip layout vertically/horizontally
-super + {_,shift + }z
+super + {_,shift + }y
     bspc node @/ --flip {vertical,horizontal}
 
 # Rotate desktop
