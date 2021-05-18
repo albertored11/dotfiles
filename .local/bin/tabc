@@ -1,0 +1,90 @@
+#!/usr/bin/env bash
+
+# Usage:
+# tabc <command>
+# Commands:
+#    add <direction-of-tabbed> <window-id> - Add window to tabbed
+#    remove <window-id> - Remove window from tabbed
+#    list <tabbed-id> - List all clients of tabbed
+
+#
+# Functions
+#
+
+# Get wid of root window
+function get_root_wid {
+	xwininfo -root | awk '/Window id:/{print $4}'
+}
+
+# Get children of tabbed
+function get_clients {
+	id=$1
+	xwininfo -id $id -children | sed -n '/[0-9]\+ \(child\|children\):/,$s/ \+\(0x[0-9a-z]\+\).*/\1/p'
+}
+
+# Get class of a wid
+function get_class {
+	id=$1
+  if [ -z $id ]; then
+    echo ""
+  else
+	  xprop -id $id | sed -n '/WM_CLASS/s/.*, "\(.*\)"/\1/p'
+  fi
+}
+
+#
+# Main Program
+#
+
+cmd=$1
+
+case $cmd in
+    create)
+        wid=$(bspc query -N -n focused)
+        bspc config -n focused border_width 0
+        tabbedid=$(tabbed -c -d -k)
+        xdotool windowreparent $wid $tabbedid
+        ;;
+	add)
+
+		focusedid=$(bspc query -N -n focused)
+        otherid=$(bspc query -N -n $2)
+
+        [[ -z $otherid ]] && exit 1
+
+        if [[ "$(get_class $otherid)" != "tabbed" ]]; then
+            bspc config -n $otherid border_width 0
+            tabbedid=$(tabbed -c -d -k)
+            xdotool windowreparent $otherid $tabbedid
+        else
+            tabbedid=$otherid
+        fi
+
+        bspc config -n $focusedid border_width 0
+		xdotool windowreparent $focusedid $tabbedid
+
+		;;
+
+	remove)
+
+        tabbedid=$(bspc query -N -n focused)
+
+        [[ "$(get_class $tabbedid)" == "tabbed" ]] || exit 1
+
+        childid=$(get_clients $tabbedid | head -n1)
+        rootid=$(get_root_wid)
+
+		xdotool windowreparent $childid $rootid
+
+#        if [[ "$(get_clients $tabbedid | wc -l)" == "1" ]]; then
+#            childid=$(get_clients $tabbedid)
+#            xdotool windowreparent $childid $rootid
+#        fi 
+
+		;;
+
+	list)
+        tabbedid=$2
+		get_clients $tabbedid
+		;;
+esac
