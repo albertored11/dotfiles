@@ -1,5 +1,5 @@
 [colors]
-;background = #80282a36
+background-real = #b0282a36
 background = #00000000
 ;background-alt = #8044475a
 background-alt = #80676a7e
@@ -14,7 +14,7 @@ alert = #ff5555
 width = 100%
 height = 36
 
-background = ${colors.background}
+background = ${colors.background-real}
 
 modules-left = xwindow
 
@@ -76,7 +76,7 @@ override-redirect = true
 bottom = true
 
 [bar/main-bspwm]
-width = 1852
+width = 1846
 height = 36
 
 background = ${colors.background}
@@ -110,10 +110,10 @@ cursor-click = pointer
 bottom = true
 
 [bar/clock-bspwm]
-width = 68
+width = 74
 height = 36
 
-offset-x = 1852
+offset-x = 1846
 
 background = ${colors.background}
 foreground = ${colors.foreground}

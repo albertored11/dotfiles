@@ -121,14 +121,18 @@ super + {i,o,f}
     bspc node -t {tiled,floating,fullscreen}
 
 # hide focused/brother window
-super + {_,alt + } h
+super + {_,alt + }h
     bspc node {_,$(bspc query -N -n @brother.!hidden)} -g hidden=on
 
 # unhide and focus window/group
-super + shift + {_,alt + } + h
+super + {_,alt + }j
     hidden=$(bspc query -N -n @brother.hidden{.window,_}); \
     [[ -z $hidden ]] && hidden=$(bspc query -N -n any.hidden.local{.window,_}); \
     bspc node $hidden -g hidden=off && bspc node -f $hidden
+
+# show hidden windows
+super + shift + j
+    $HOME/.config/rofi/bspwm-hidden/launcher.sh
 
 #
 # focus/swap
