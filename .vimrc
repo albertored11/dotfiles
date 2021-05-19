@@ -40,13 +40,3 @@ set completeopt-=preview
 let g:dracula_colorterm = 0
 syntax enable
 colorscheme dracula
-
-" map ctrl + arrows in alacritty
-map <ESC>[1;5A <C-Up>
-map <ESC>[1;5B <C-Down>
-map <ESC>[1;5C <C-Right>
-map <ESC>[1;5D <C-Left>
-imap <ESC>[1;5A <C-Up>
-imap <ESC>[1;5B <C-Down>
-imap <ESC>[1;5C <C-Right>
-imap <ESC>[1;5D <C-Left>
