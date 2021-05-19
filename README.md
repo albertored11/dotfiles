@@ -13,7 +13,7 @@ Model is Dell XPS 13 9370:
 
 ## screenshot
 
-![Screenshot](Nextcloud/Capturas%20de%20pantalla/alberbook/screenshot_20210427_192939.png)
+![Screenshot](Nextcloud/Capturas%20de%20pantalla/alberbook/unixporn-dracula-bake.png)
 
 ## pkg choices
 
