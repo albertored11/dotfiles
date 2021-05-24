@@ -2,8 +2,6 @@
 
 xrdb -merge $HOME/.Xresources
 
-setxkbmap -layout es
-
 xmodmap $HOME/.Xmodmap
 
 # start some nice programs
