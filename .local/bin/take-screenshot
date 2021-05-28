@@ -15,7 +15,7 @@ case "$1" in
         desc="Pantalla completa capturada"
     ;;
     crop)
-        args=" -s"
+        args=" -s -l -D -t 0 -c 0.384,0.447,0.643,0.5"
         desc="Selección capturada"
     ;;
     activewin)
