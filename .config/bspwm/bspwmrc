@@ -1,6 +1,6 @@
 #! /bin/sh
 
-$HOME/.local/bin/lock-screen &
+$HOME/.local/bin/lock-screen || i3lock
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 
