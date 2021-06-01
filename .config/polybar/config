@@ -41,7 +41,7 @@ font-2 = JetBrainsMono Nerd Font Mono:style=Medium,Regular:size=10;3
 font-3 = JetBrainsMono Nerd Font Mono:style=Medium,Regular:size=14;4
 
 modules-left = xwindow
-modules-right = player-mpris-tail i3 backlight battery pulseaudio
+modules-right = player-mpris-tail i3 battery pulseaudio
 
 tray-position = right
 tray-padding = 2
@@ -96,7 +96,7 @@ font-2 = JetBrainsMono Nerd Font Mono:style=Medium,Regular:size=10;3
 font-3 = JetBrainsMono Nerd Font Mono:style=Medium,Regular:size=14;4
 
 modules-left = xwindow
-modules-right = player-mpris-tail bspwm backlight battery pulseaudio
+modules-right = player-mpris-tail bspwm battery pulseaudio
 
 tray-position = right
 tray-padding = 2
@@ -215,21 +215,6 @@ ramp-volume-1-font = 4
 ramp-volume-2-font = 2
 
 click-right = pavucontrol-qt
-
-[module/backlight]
-type = internal/backlight
-
-card = intel_backlight
-
-format = <ramp>  <label>
-
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
-ramp-3 = 
-ramp-4 = 
-
-label = %percentage% %
 
 [module/battery]
 type = internal/battery

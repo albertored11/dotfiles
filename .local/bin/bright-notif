@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+usage() {
+    echo "usage: $(basename "$0") <up/down>" >&2
+    exit 1
+}
+
+[[ "$#" -eq 1 ]] || usage
+
+case "$1" in
+    up)
+        brightnessctl -q set 5%+
+    ;;
+    down)
+        brightnessctl -q set 5%-
+    ;;
+esac
+
+desc="$(awk -F "," '{ print $4 }' <(brightnessctl i -m))"
+
+dunstify -a "Brillo" "$desc"

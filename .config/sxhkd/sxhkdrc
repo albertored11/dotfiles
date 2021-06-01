@@ -64,7 +64,8 @@ XF86Audio{Prev,Next}
 
 # brightness up/down
 XF86MonBrightness{Up,Down}
-    brightnessctl set 5%{+,-}
+    $HOME/.local/bin/bright-notif {up,down}
+    #brightnessctl set 5%{+,-}
 
 # lock screen
 super + l
