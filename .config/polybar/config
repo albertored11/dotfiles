@@ -202,9 +202,7 @@ type = internal/pulseaudio
 
 use-ui-max = false
 
-format-volume = <ramp-volume>  <label-volume>
-
-label-volume = %percentage% %
+format-volume = <ramp-volume>
 
 label-muted = ﱝ
 

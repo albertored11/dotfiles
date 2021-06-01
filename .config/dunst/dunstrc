@@ -319,6 +319,11 @@
     # Icon for notifications with critical urgency, uncomment to enable
     #icon = /path/to/icon
 
+[volume-notif]
+    appname = "Volumen"
+    set_stack_tag = true
+    set_transient = true
+
 # Every section that isn't one of the above is interpreted as a rules to
 # override settings for certain messages.
 #
