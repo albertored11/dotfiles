@@ -25,7 +25,7 @@ set incsearch
 
 " Useful mappings for managing tabs
 nnoremap <C-n> :tabnew<cr>
-nnoremap <C-w> :tabclose<cr>
+nnoremap <C-x> :tabclose<cr>
 nnoremap <C-PageDown> :tabnext<cr>
 nnoremap <C-PageUp> :tabprevious<cr>
 

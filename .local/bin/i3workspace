@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+current=$(i3-msg -t get_workspaces | jq '.[] | select(.focused==true).num')
+
+case "$2" in
+    prev)
+        new=$(( $current - 1 ))
+    ;;
+    next)
+        new=$(( $current + 1 ))
+    ;;
+esac
+
+[[ $new -eq 0 ]] && new=10
+[[ $new -eq 11 ]] && new=1
+
+if [[ "$1" =~ "move" ]]; then
+    i3-msg move container to workspace $new
+fi
+
+if [[ "$1" =~ "switch" ]]; then
+    i3-msg workspace $new
+fi

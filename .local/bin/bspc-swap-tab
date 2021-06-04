@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+# TODO variable for focused (and use it instead of $tabbed)
+
+if [[ $(xprop -id $(bspc query -N -n focused) | sed -n '/WM_CLASS/s/.*, "\(.*\)"/\1/p') == "tabbed" && $(tabc list $(bspc query -N -n focused) | wc -l) != "1" ]]; then
+    if [[ $1 == "north" ]]; then
+        revdir="south"
+    elif [[ $1 == "south" ]]; then
+        revdir="north"
+    elif [[ $1 == "east" ]]; then
+        revdir="west"
+    elif [[ $1 == "west" ]]; then
+        revdir="east"
+    fi
+    tabbed=$(bspc query -N -n focused)
+    child=$(tabc list $tabbed | head -n1)
+    tabc remove $tabbed $child
+    [[ $(bspc query -N -n $revdir) == $tabbed ]] || bspc node -s $1
+elif [[ $(xprop -id $(bspc query -N -n $1) | sed -n '/WM_CLASS/s/.*, "\(.*\)"/\1/p') == "tabbed" ]]; then
+    tabc add $(bspc query -N -n $1)
+else
+    bspc node -s $1
+fi

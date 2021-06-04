@@ -96,12 +96,14 @@ font-2 = JetBrainsMono Nerd Font Mono:style=Medium,Regular:size=10;3
 font-3 = JetBrainsMono Nerd Font Mono:style=Medium,Regular:size=14;4
 
 modules-left = xwindow
-modules-right = player-mpris-tail bspwm battery pulseaudio
+modules-right = player-mpris-tail bspwm-hidden-local bspwm battery pulseaudio
 
 tray-position = right
 tray-padding = 2
 
 dpi = 120
+
+enable-ipc = true
 
 wm-restack = bspwm
 
@@ -228,9 +230,9 @@ format-charging = <ramp-capacity>  <label-charging>
 format-discharging = <ramp-capacity>  <label-discharging>
 format-full = <ramp-capacity>  <label-full>
 
-label-charging =  %percentage% %
-label-discharging = %percentage% %
-label-full = 100 %
+label-charging =  %percentage%%
+label-discharging = %percentage%%
+label-full = 100%
 
 ramp-capacity-0 = 
 ramp-capacity-1 = 
@@ -248,6 +250,11 @@ type = custom/script
 exec = ~/.config/polybar/popup-calendar.sh
 interval = 5
 click-left = ~/.config/polybar/popup-calendar.sh --popup &
+
+[module/bspwm-hidden-local]
+type = custom/ipc
+hook-0 = ~/.config/polybar/bspwm-hidden-local.sh
+initial = 1
 
 [settings]
 screenchange-reload = true

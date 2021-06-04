@@ -76,8 +76,12 @@ super + l
     $HOME/.local/bin/take-screenshot {fullscr,crop,activewin} "$HOME/Nextcloud/Capturas de pantalla/alberbook"
 
 # powermenu
-{ctrl + alt + Delete,XF86PowerOff,XF86Sleep}
+{ctrl + alt + Delete,XF86PowerOff}
     $HOME/.config/rofi/powermenu/powermenu.sh
+
+# turn off screen
+XF86Sleep
+    xset dpms force off
 
 # toggle hdmi sound
 super + less
@@ -86,6 +90,9 @@ super + less
 # mount/unmount alberpc
 super + {_,shift + } u
     $HOME/.local/bin/{_,u}mount-alberpc
+
+# mirror screen
+    xrandr --output DP-1 --auto
 
 # gcalcli month agenda calendar
 super + shift + a 
@@ -129,9 +136,16 @@ super + {_,alt + }h
 
 # unhide and focus window/group
 super + {_,alt + }j
-    hidden=$(bspc query -N -n @brother.hidden{.window,_}); \
-    [[ -z $hidden ]] && hidden=$(bspc query -N -n any.hidden.local{.window,_}); \
+    hidden=$(bspc query -N -n any.hidden.local{.window,_}); \
     bspc node $hidden -g hidden=off && bspc node -f $hidden
+
+    #hidden=$(bspc query -N -n @brother.hidden{.window,_}); \
+    #[[ -z $hidden ]] && hidden=$(bspc query -N -n any.hidden.local{.window,_}); \
+    #bspc node $hidden -g hidden=off && bspc node -f $hidden
+
+# swap focused node with hidden node
+super + alt + {1-9}
+    $HOME/.local/bin/bspc-swap-hidden {1-9}
 
 # show hidden windows
 super + shift + j
