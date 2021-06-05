@@ -95,10 +95,12 @@ font-2 = JetBrainsMono Nerd Font Mono:style=Medium,Regular:size=10;3
 font-3 = JetBrainsMono Nerd Font Mono:style=Medium,Regular:size=14;4
 
 modules-left = xwindow
-modules-right = player-mpris-tail bspwm pulseaudio
+modules-right = player-mpris-tail bspwm-hidden-local bspwm pulseaudio
 
 tray-position = right
 tray-padding = 2
+
+enable-ipc = true
 
 wm-restack = bspwm
 
@@ -224,6 +226,11 @@ type = custom/script
 exec = ~/.config/polybar/popup-calendar.sh
 interval = 5
 click-left = ~/.config/polybar/popup-calendar.sh --popup &
+
+[module/bspwm-hidden-local]
+type = custom/ipc
+hook-0 = ~/.config/polybar/bspwm-hidden-local.sh
+initial = 1
 
 [settings]
 screenchange-reload = true

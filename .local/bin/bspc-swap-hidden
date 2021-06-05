@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+hidden=$(bspc query -N -n .hidden.local.window | sed -n $1p)
+
+[[ -z $hidden ]] && exit 1
+
+bspc node $hidden -g hidden=off
+bspc node -s $hidden
+bspc node -g hidden=on
+bspc node -f $hidden

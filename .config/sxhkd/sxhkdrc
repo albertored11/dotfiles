@@ -116,9 +116,16 @@ super + {_,alt + }h
 
 # unhide and focus window/group
 super + {_,alt + }j
-    hidden=$(bspc query -N -n @brother.hidden{.window,_}); \
-    [[ -z $hidden ]] && hidden=$(bspc query -N -n any.hidden.local{.window,_}); \
+    hidden=$(bspc query -N -n any.hidden.local{.window,_}); \
     bspc node $hidden -g hidden=off && bspc node -f $hidden
+
+    #hidden=$(bspc query -N -n @brother.hidden{.window,_}); \
+    #[[ -z $hidden ]] && hidden=$(bspc query -N -n any.hidden.local{.window,_}); \
+    #bspc node $hidden -g hidden=off && bspc node -f $hidden
+
+# swap focused node with hidden node
+super + alt + {1-9}
+    $HOME/.local/bin/bspc-swap-hidden {1-9}
 
 # show hidden windows
 super + shift + j
