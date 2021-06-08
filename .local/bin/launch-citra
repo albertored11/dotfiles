@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+bspc wm --add-monitor SPAN 3840x1080+0+0
+bspc desktop Desktop -n 0
+bspc desktop 0 -f
+
+citra-qt
+
+bspc monitor SPAN -r

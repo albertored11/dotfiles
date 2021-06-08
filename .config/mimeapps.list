@@ -16,6 +16,7 @@ application/octet-stream=visual-studio-code.desktop;
 application/pdf=org.pwmt.zathura.desktop;
 text/x-makefile=visual-studio-code.desktop;
 application/xhtml+xml=chromium.desktop;
+application/x-virtualbox-vmdk=visual-studio-code.desktop;
 
 [Default Applications]
 application/bmpr=balsamiq-wireframes-bmpr.desktop

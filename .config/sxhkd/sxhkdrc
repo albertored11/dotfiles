@@ -161,10 +161,8 @@ ctrl + alt + {Prior,Next}
     bspc node -d {prev,next}.local --follow
 
 # focus or send to the given desktop
-super + {_,shift + }{1-9}
-	bspc {desktop -f,node -d} '^{1-9}'
-super + {_,shift + }0
-    bspc {desktop -f,node -d} 10
+super + {_,shift + }{1-9,0}
+	bspc {desktop -f,node -d} {1-9,10}
 
 # send to the next monitor
 super + less

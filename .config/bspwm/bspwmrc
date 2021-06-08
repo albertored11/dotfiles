@@ -23,6 +23,8 @@ bspc rule -a Pavucontrol        state=floating
 bspc rule -a Blueman-manager    state=floating
 bspc rule -a Zathura            state=tiled
 
+$HOME/.local/bin/bspc-auto-hide-unhide pcmanfm-qt &
+
 wmname LG3D &
 xsetroot -cursor_name left_ptr &
 xcape -e "Super_L=Super_L|Escape" &

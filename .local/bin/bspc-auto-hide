@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+bspc subscribe node_add | while read node; do
+    node=$(echo $node | cut -d ' ' -f5)
+    [[ -z $(bspc query -N -n $node.!floating) ]] && continue
+    brother=$(bspc query -N $node -n @brother)
+    [[ -z $brother ]] || ( [[ "$(xprop -id $brother WM_CLASS | cut -d ' ' -f4 | tr -d "\"")" == "$1" ]] && bspc node $brother -g hidden=on && echo $node $brother )
+done
