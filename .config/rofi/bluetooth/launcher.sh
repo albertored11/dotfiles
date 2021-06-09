@@ -22,10 +22,26 @@ list_devices() {
 
     if [[ $selected -eq ${#macs[@]} ]]; then
         bluetoothctl -- power off
+
+        dunstify -a "Bluetooth" "Powered off"
     else
         [[ ${cons[$selected]} == "yes" ]] && op="disconnect" || op="connect"
 
         bluetoothctl -- $op ${macs[$selected]}
+
+        if [[ $? -eq 0 ]]; then
+            if [[ "$op" == "connect" ]]; then
+                dunstify -a "Bluetooth" "Connected to ${devs[$selected]}"
+            else
+                dunstify -a "Bluetooth" "Disconnected from $(echo ${devs[$selected]} | cut -d ' ' -f2-)"
+            fi
+        else
+            if [[ "$op" == "connect" ]]; then
+                dunstify -a "Bluetooth" "Couldn't connect to ${devs[$selected]}"
+            else
+                dunstify -a "Bluetooth" "Couldn't disconnect from $(echo ${devs[$selected]} | cut -d ' ' -f2-)"
+            fi
+        fi
     fi
 }
 
@@ -39,6 +55,8 @@ else
     [[ -z $selected ]] && exit 1
 
     bluetoothctl -- power on
+
+    dunstify -a "Bluetooth" "Powered on"
     
     list_devices
 fi
