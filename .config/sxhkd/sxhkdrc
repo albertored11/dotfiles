@@ -74,6 +74,10 @@ super + l
 {ctrl + alt + Delete,XF86PowerOff,XF86Sleep}
     $HOME/.config/rofi/powermenu/powermenu.sh
 
+# show bluetooth devices
+super + w
+    $HOME/.config/rofi/bluetooth/launcher.sh
+
 # gcalcli month agenda calendar
 super + shift + a 
     kitty --hold gcalcli calm --monday

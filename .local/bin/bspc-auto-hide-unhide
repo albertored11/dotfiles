@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-# TODO multiple classes in one socket
-
-$HOME/.local/bin/bspc-auto-hide "$1" | while read -a node; do
-    echo ${node[0]} ${node[1]}
+$HOME/.local/bin/bspc-auto-hide "$@" | while read -a node; do
     $HOME/.local/bin/bspc-auto-unhide ${node[0]} ${node[1]} &
 done
