@@ -1,26 +1,38 @@
 #!/usr/bin/env bash
 
-macs=()
-cons=()
-devs=()
+powered="$(bluetoothctl -- show | grep "Powered" | cut -d ' ' -f2)"
 
-while read line; do
-    mac="$(echo $line | cut -d ' ' -f2)"
-    macs+=("$mac")
-    con="$(bluetoothctl -- info $mac | grep "Connected" | cut -d ' ' -f2)"
-    cons+=("$con")
-    [[ "$con" == "yes" ]] && prefix="[*] " || prefix=""
-    devs+=("$prefix$(echo $line | cut -d ' ' -f3-)")
-done <<<$(bluetoothctl -- paired-devices)
+if [[ "$powered" == "yes" ]]; then
+    macs=()
+    cons=()
+    devs=()
 
-selected=$(for dev in "${devs[@]}"; do echo $dev; done | rofi -theme ~/.config/rofi/bluetooth/blurry_custom.rasi -dmenu -format d)
+    while read line; do
+        mac="$(echo $line | cut -d ' ' -f2)"
+        macs+=("$mac")
+        con="$(bluetoothctl -- info $mac | grep "Connected" | cut -d ' ' -f2)"
+        cons+=("$con")
+        [[ "$con" == "yes" ]] && prefix="[*] " || prefix=""
+        devs+=("$prefix$(echo $line | cut -d ' ' -f3-)")
+    done <<<$(bluetoothctl -- paired-devices)
 
-[[ -z $selected ]] && exit 1
+    selected=$( ( for dev in "${devs[@]}"; do echo $dev; done; echo "Power off Bluetooth" ) | rofi -theme ~/.config/rofi/bluetooth/blurry_custom.rasi -dmenu -format d)
 
-selected=$((selected - 1))
+    [[ -z $selected ]] && exit 1
 
-[[ ${cons[$selected]} == "yes" ]] && op="disconnect" || op="connect"
+    selected=$((selected - 1))
 
-echo $op
+    if [[ $selected -eq ${#macs[@]} ]]; then
+        bluetoothctl -- power off
+    else
+        [[ ${cons[$selected]} == "yes" ]] && op="disconnect" || op="connect"
 
-bluetoothctl -- $op ${macs[$selected]}
+        bluetoothctl -- $op ${macs[$selected]}
+    fi
+else
+    selected=$(echo "Power on Bluetooth" | rofi -theme ~/.config/rofi/bluetooth/blurry_custom.rasi -dmenu -format d)
+
+    [[ -z $selected ]] && exit 1
+
+    bluetoothctl -- power on
+fi
