@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 
-powered="$(bluetoothctl -- show | grep "Powered" | cut -d ' ' -f2)"
-
-if [[ "$powered" == "yes" ]]; then
+list_devices() {
     macs=()
     cons=()
     devs=()
@@ -29,10 +27,18 @@ if [[ "$powered" == "yes" ]]; then
 
         bluetoothctl -- $op ${macs[$selected]}
     fi
+}
+
+powered="$(bluetoothctl -- show | grep "Powered" | cut -d ' ' -f2)"
+
+if [[ "$powered" == "yes" ]]; then
+    list_devices
 else
     selected=$(echo "Power on Bluetooth" | rofi -theme ~/.config/rofi/bluetooth/blurry_custom.rasi -dmenu -format d)
 
     [[ -z $selected ]] && exit 1
 
     bluetoothctl -- power on
+    
+    list_devices
 fi
