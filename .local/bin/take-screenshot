@@ -37,10 +37,10 @@ esac
 
 maim$args "$2/$filename" || exit 1
 
-action="$(dunstify -a "maim" -A "default,openFM" "$desc"$'\n'"$filename")"
+action="$(dunstify -a "maim" -A "default,openDragon" "$desc"$'\n'"$filename")"
 
 case "$action" in
     default)
-        pcmanfm-qt "$2"
+        dragon-drag-and-drop -x "$2/$filename"
     ;;
 esac
