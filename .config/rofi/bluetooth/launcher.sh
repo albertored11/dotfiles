@@ -8,10 +8,14 @@ list_devices() {
     while read line; do
         mac="$(echo $line | cut -d ' ' -f2)"
         macs+=("$mac")
+
         con="$(bluetoothctl -- info $mac | grep "Connected" | cut -d ' ' -f2)"
         cons+=("$con")
+
         [[ "$con" == "yes" ]] && prefix="[*] " || prefix=""
-        devs+=("$prefix$(echo $line | cut -d ' ' -f3-)")
+
+        dev="$(echo $line | cut -d ' ' -f3-)"
+        devs+=("$prefix$dev")
     done <<<$(bluetoothctl -- paired-devices)
 
     selected=$( ( for dev in "${devs[@]}"; do echo $dev; done; echo "Power off Bluetooth" ) | rofi -theme ~/.config/rofi/bluetooth/blurry_custom.rasi -dmenu -format d)
