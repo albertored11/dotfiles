@@ -66,9 +66,9 @@ super + {Home,End}
 super + l
     $HOME/.local/bin/lock-screen
 
-# take screenshot (full screen/crop/active window/first monitor/second monitor)
-{_,shift + ,super + ,ctrl + ,ctrl + shift + }Print
-    $HOME/.local/bin/take-screenshot {fullscr,crop,activewin,mon1,mon2} "$HOME/Nextcloud/Capturas de pantalla/alberpc"
+# take screenshot (full screen/crop/active window/current monitor)
+{_,shift + ,super + ,ctrl +}Print
+    $HOME/.local/bin/take-screenshot {fullscr,crop,activewin,mon} "$HOME/Nextcloud/Capturas de pantalla/alberpc"
 
 # powermenu
 {ctrl + alt + Delete,XF86PowerOff,XF86Sleep}
@@ -85,6 +85,10 @@ super + shift + a
 # lyrics-in-terminal
 super + shift + l
     kitty lyrics
+
+# ghci
+XF86Calculator
+    kitty ghci
 
 #
 # bspwm hotkeys
