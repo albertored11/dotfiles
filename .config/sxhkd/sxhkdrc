@@ -118,17 +118,17 @@ super + {i,o,f}
 super + {_,alt + }h
     $HOME/.local/bin/bspc-hiding hide{_, brother}
 
-# unhide and focus any/brother window
-super + {_,alt + }j
-    $HOME/.local/bin/bspc-hiding unhide {any,brother}
+# unhide any window
+super + j
+    $HOME/.local/bin/bspc-hiding unhide any
 
 # swap focused node with hidden node
 super + alt + {1-9}
     $HOME/.local/bin/bspc-hiding swap {1-9}
 
-# show hidden windows
-super + shift + j
-    $HOME/.config/rofi/bspwm-hidden/launcher.sh
+# show hidden windows and unhide/swap
+super + {shift + ,alt + }j
+    $HOME/.config/rofi/bspwm-hidden/launcher.sh {unhide,swap}
 
 #
 # focus/swap

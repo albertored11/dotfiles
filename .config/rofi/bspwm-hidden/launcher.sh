@@ -7,5 +7,4 @@ selected=$(for wid in $hwids; do xtitle $wid; done | rofi -theme ~/.config/rofi/
 
 wid=$(echo $hwids | cut -d ' ' -f$selected)
 
-bspc node $wid -g hidden=off
-bspc node -f $wid
+$HOME/.local/bin/bspc-hiding $1 $wid
