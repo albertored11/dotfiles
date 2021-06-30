@@ -79,6 +79,10 @@ super + l
 {ctrl + alt + Delete,XF86PowerOff}
     $HOME/.config/rofi/powermenu/powermenu.sh
 
+# show bluetooth devices
+super + w
+    $HOME/.config/rofi/bluetooth/launcher.sh
+
 # turn off screen
 XF86Sleep
     xset dpms force off
@@ -92,6 +96,7 @@ super + {_,shift + } u
     $HOME/.local/bin/{_,u}mount-alberpc
 
 # mirror screen
+super + greater
     xrandr --output DP-1 --auto
 
 # gcalcli month agenda calendar
@@ -132,20 +137,15 @@ super + {i,o,f}
 
 # hide focused/brother window
 super + {_,alt + }h
-    bspc node {_,$(bspc query -N -n @brother.!hidden)} -g hidden=on
+    $HOME/.local/bin/bspc-hiding hide{_, brother}
 
-# unhide and focus window/group
+# unhide and focus any/brother window
 super + {_,alt + }j
-    hidden=$(bspc query -N -n any.hidden.local{.window,_}); \
-    bspc node $hidden -g hidden=off && bspc node -f $hidden
-
-    #hidden=$(bspc query -N -n @brother.hidden{.window,_}); \
-    #[[ -z $hidden ]] && hidden=$(bspc query -N -n any.hidden.local{.window,_}); \
-    #bspc node $hidden -g hidden=off && bspc node -f $hidden
+    $HOME/.local/bin/bspc-hiding unhide {any,brother}
 
 # swap focused node with hidden node
 super + alt + {1-9}
-    $HOME/.local/bin/bspc-swap-hidden {1-9}
+    $HOME/.local/bin/bspc-hiding swap {1-9}
 
 # show hidden windows
 super + shift + j
@@ -176,10 +176,8 @@ ctrl + alt + {Prior,Next}
     bspc node -d {prev,next}.local --follow
 
 # focus or send to the given desktop
-super + {_,shift + }{1-9}
-	bspc {desktop -f,node -d} '^{1-9}'
-super + {_,shift + }0
-    bspc {desktop -f,node -d} 10
+super + {_,shift + }{1-9,0}
+	bspc {desktop -f,node -d} {1-9,10}
 
 #
 # preselect

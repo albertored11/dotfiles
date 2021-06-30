@@ -143,21 +143,21 @@ label-maxlen = 100
 [module/bspwm]
 type = internal/bspwm
 
-label-dimmed-focused = %index%
+label-dimmed-focused = %name%
 label-dimmed-focused-background = ${colors.background-alt-1}
 ;label-dimmed-focused-underline = ${colors.primary}
 label-dimmed-focused-underline = #00000000
 label-dimmed-focused-padding = 3
 
-label-focused = %index%
+label-focused = %name%
 label-focused-background = ${colors.background-alt}
 label-focused-underline= ${colors.secondary}
 label-focused-padding = 3
 
-label-occupied = %index%
+label-occupied = %name%
 label-occupied-padding = 3
 
-label-urgent = %index%!
+label-urgent = %name%!
 label-urgent-background = ${colors.alert}
 label-urgent-padding = 3
 
@@ -197,7 +197,7 @@ enable-scroll = false
 [module/date]
 type = internal/date
 
-time = %H:%M
+time = %k:%M
 
 label = %time%
 

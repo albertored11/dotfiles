@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+$HOME/.local/bin/bspc-auto-hide "$@" | while read -a node; do
+    $HOME/.local/bin/bspc-auto-unhide ${node[0]} ${node[1]} &
+done
