@@ -3,26 +3,39 @@
 case "$1" in
     hide)
         if [[ -z "$2" ]]; then
-            bspc node -g hidden=on
+            hidden=""
+        elif [[ "$2" =~ ^0x.* ]]; then
+            hidden=" $2"
         else
-            bspc node @$2.!hidden -g hidden=on
+            hidden=" $(bspc query -N -n @$2.!hidden.local)"
         fi
+
+        bspc node$hidden -g hidden=on
     ;;
     unhide)
-        case "$2" in
-            any)
-                hidden=$(bspc query -N -n any.hidden.local.window)
-            ;;
-            *)
-                hidden=$(bspc query -N -n @$2.hidden.local.window)
-            ;;
-        esac
+        if [[ "$2" =~ ^0x.* ]]; then
+            hidden=$2
+        else
+            case "$2" in
+                any)
+                    hidden=$(bspc query -N -n any.hidden.local.window)
+                ;;
+                *)
+                    hidden=$(bspc query -N -n @$2.hidden.local.window)
+                ;;
+            esac
+        fi
 
         bspc node $hidden -g hidden=off
         bspc node -f $hidden       
     ;;
     swap)
-        hidden=$(bspc query -N -n .hidden.local.window | sed -n $2p)
+        if [[ "$2" =~ ^0x.* ]]; then
+            hidden=$2
+        else
+            hidden=$(bspc query -N -n .hidden.local.window | sed -n $2p)
+        fi
+
         [[ -z $hidden ]] && exit 1
 
         bspc node $hidden -g hidden=off
