@@ -67,6 +67,10 @@ XF86MonBrightness{Up,Down}
     $HOME/.local/bin/bright-notif {up,down}
     #brightnessctl set 5%{+,-}
 
+# set brightness to 0
+shift + XF86MonBrightnessDown
+    $HOME/.local/bin/bright-notif off
+
 # lock screen
 super + l
     $HOME/.local/bin/lock-screen
@@ -97,11 +101,12 @@ super + {_,shift + } u
 
 # mirror screen
 super + greater
-    xrandr --output DP-1 --auto
+    xrandr --output DP-1 --auto; \
+    bspc monitor DP-1 -r
 
-# gcalcli month agenda calendar
+# google calendar
 super + shift + a 
-    kitty --hold gcalcli calm --monday
+    xdg-open "https://calendar.google.com"
 
 # lyrics-in-terminal
 super + shift + l

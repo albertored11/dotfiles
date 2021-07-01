@@ -7,12 +7,23 @@ usage() {
 
 [[ "$#" -eq 1 ]] || usage
 
+pb="/tmp/prev-bright"
+
 case "$1" in
     up)
-        brightnessctl -q set 5%+
+        if [[ -f "$pb" ]]; then
+            brightnessctl -q set "$(cat $pb)"
+            rm "$pb"
+        else
+            brightnessctl -q set 5%+
+        fi
     ;;
     down)
         brightnessctl -q set 5%-
+    ;;
+    off)
+        awk -F "," '{ print $4 }' <(brightnessctl i -m) > "$pb"
+        brightnessctl -q set 0
     ;;
 esac
 
