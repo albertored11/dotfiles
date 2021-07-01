@@ -24,6 +24,7 @@ bspc rule -a Blueman-manager    state=floating
 bspc rule -a Zathura            state=tiled
 
 $HOME/.local/bin/bspc-auto-hide-unhide pcmanfm-qt &
+$HOME/.local/bin/bspc-polybar-color &
 
 wmname LG3D &
 xsetroot -cursor_name left_ptr &
