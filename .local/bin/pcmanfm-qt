@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+QT_STYLE_OVERRIDE="kvantum-dark" /usr/bin/pcmanfm-qt

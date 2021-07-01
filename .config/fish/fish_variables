@@ -16,7 +16,6 @@ SETUVAR --export LESS_TERMCAP_ue:\x1b\x5b0m
 SETUVAR --export LESS_TERMCAP_us:\x1b\x5b01\x3b32m
 SETUVAR --export PAGER:less
 SETUVAR --export QT_QPA_PLATFORMTHEME:qt5ct
-SETUVAR --export QT_STYLE_OVERRIDE:kvantum\x2ddark
 SETUVAR --export SXHKD_SHELL:/usr/bin/sh
 SETUVAR --export VISUAL:vim
 SETUVAR --export XDG_CACHE_HOME:/home/herbort/\x2ecache

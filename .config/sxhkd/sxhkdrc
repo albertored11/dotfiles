@@ -78,9 +78,9 @@ super + l
 super + w
     $HOME/.config/rofi/bluetooth/launcher.sh
 
-# gcalcli month agenda calendar
+# google calendar
 super + shift + a 
-    kitty --hold gcalcli calm --monday
+    xdg-open "https://calendar.google.com"
 
 # lyrics-in-terminal
 super + shift + l
