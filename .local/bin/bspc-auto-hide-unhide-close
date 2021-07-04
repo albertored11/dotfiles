@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+bspc subscribe node_remove | while read node; do
+    node=$(echo $node | cut -d ' ' -f4)
+    [[ "$node" == "$1" ]] && kill -SIGTERM -- -$2
+done

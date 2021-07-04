@@ -134,6 +134,10 @@ super + alt + {1-9}
 super + {shift + ,alt + }j
     $HOME/.config/rofi/bspwm-hidden/launcher.sh {unhide,swap}
 
+# toggle auto hide/unhide window
+super + k
+    $HOME/.local/bin/bspc-auto-hide-unhide node $(bspc query -N -n)
+
 #
 # focus/swap
 #

@@ -1,5 +1,31 @@
 #!/usr/bin/env bash
 
-$HOME/.local/bin/bspc-auto-hide "$@" | while read -a node; do
-    $HOME/.local/bin/bspc-auto-unhide ${node[0]} ${node[1]} &
-done
+px="$(pgrep -f "$(echo "$0 $@")")"
+
+[[ $(echo "$px" | wc -l) != 1 ]] && for p in $px; do kill -SIGTERM -- -$p; done && exit 0
+
+case $1 in
+    class)
+        mode=class
+        shift 1
+    ;;
+    node)
+        mode=node
+        shift 1
+    ;;
+esac
+
+case $mode in
+    class)
+        $HOME/.local/bin/bspc-auto-hide $mode "$@" | while read -a node; do
+            $HOME/.local/bin/bspc-auto-unhide ${node[0]} ${node[1]} &
+        done
+    ;;
+    node)
+        $HOME/.local/bin/bspc-auto-hide-unhide-close "$1" "$$" &
+
+        $HOME/.local/bin/bspc-auto-hide $mode "$1" | while read -a node; do
+            $HOME/.local/bin/bspc-auto-unhide ${node[0]} ${node[1]} &
+        done
+    ;;
+esac

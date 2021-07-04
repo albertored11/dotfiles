@@ -1,8 +1,27 @@
 #!/usr/bin/env bash
 
+case $1 in
+    class)
+        mode=class
+        shift 1
+    ;;
+    node)
+        mode=node
+        shift 1
+    ;;
+esac
+
 bspc subscribe node_add | while read node; do
     node=$(echo $node | cut -d ' ' -f5)
     [[ -z $(bspc query -N -n $node.!floating) ]] && continue
     brother=$(bspc query -N $node -n @brother)
-    [[ -z $brother ]] || ( [[ "$@" =~ "$(xprop -id $brother WM_CLASS | cut -d ' ' -f4 | tr -d "\"")" ]] && bspc node $brother -g hidden=on && echo $node $brother )
+   
+    case $mode in
+        class)
+            [[ -z $brother ]] || ( [[ "$@" =~ "$(xprop -id $brother WM_CLASS | cut -d ' ' -f4 | tr -d "\"")" ]] && bspc node $brother -g hidden=on && echo $node $brother ) 
+        ;;
+        node)
+            [[ -z $brother ]] || ( [[ "$1" == "$brother" ]] && bspc node $brother -g hidden=on && echo $node $brother )
+        ;;
+    esac
 done
