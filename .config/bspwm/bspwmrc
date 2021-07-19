@@ -2,12 +2,13 @@
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 
-bspc monitor DP-1 -d 1 2 3 4 5
-bspc monitor HDMI-2 -d 6 7 8 9 10
+bspc monitor -d 1 2 3 4 5 6 7 8 9 10
 
 bspc config border_width        2
 bspc config window_gap          10
 
+bspc config borderless_monocle      true
+bspc config gapless_monocle         true
 bspc config focus_follows_pointer   true
 bspc config single_monocle          true
 bspc config automatic_scheme        alternate
@@ -24,6 +25,7 @@ bspc rule -a Blueman-manager    state=floating
 bspc rule -a Zathura            state=tiled
 
 $HOME/.local/bin/bspc-auto-hide-unhide class pcmanfm-qt &
+$HOME/.local/bin/bspc-polybar-color &
 
 wmname LG3D &
 xsetroot -cursor_name left_ptr &

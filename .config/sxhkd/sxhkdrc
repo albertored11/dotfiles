@@ -16,7 +16,7 @@ super + e
 
 # spotify
 super + shift + s
-    spotify
+    spotify --force-device-scale-factor=1.25
 
 # discord
 super + shift + d
