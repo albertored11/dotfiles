@@ -44,13 +44,13 @@ super + shift + Escape
 
 # volume up/down
 XF86Audio{RaiseVolume,LowerVolume}
-    $HOME/.local/bin/volume-notif {up,down}
+    volume-notif {up,down}
     #amixer -q sset Master unmute && amixer -q sset Master 5%{+,-}
     #pactl set-sink-mute @DEFAULT_SINK@ false; pactl set-sink-volume @DEFAULT_SINK@ {+,-}5%
 
 # mute/unmute volume
 XF86AudioMute
-    $HOME/.local/bin/volume-notif toggle
+    volume-notif toggle
     #amixer -q sset Master toggle
     #pactl set-sink-mute @DEFAULT_SINK@ toggle
 
@@ -64,20 +64,20 @@ XF86Audio{Prev,Next}
 
 # brightness up/down
 XF86MonBrightness{Up,Down}
-    $HOME/.local/bin/bright-notif {up,down}
+    bright-notif {up,down}
     #brightnessctl set 5%{+,-}
 
 # set brightness to 0
 shift + XF86MonBrightnessDown
-    $HOME/.local/bin/bright-notif off
+    bright-notif off
 
 # lock screen
 super + l
-    $HOME/.local/bin/lock-screen
+    lock-screen
 
 # take screenshot (full screen/crop/active window)
 {_,shift + ,super + }Print
-    $HOME/.local/bin/take-screenshot {fullscr,crop,activewin} "$HOME/Nextcloud/Capturas de pantalla/alberbook"
+    take-screenshot {fullscr,crop,activewin} "$HOME/Nextcloud/Capturas de pantalla/alberbook"
 
 # powermenu
 {ctrl + alt + Delete,XF86PowerOff}
@@ -93,11 +93,11 @@ XF86Sleep
 
 # toggle hdmi sound
 super + less
-    $HOME/.local/bin/hdmi-sound-toggle
+    hdmi-sound-toggle
 
 # mount/unmount alberpc
 super + {_,shift + } u
-    $HOME/.local/bin/{_,u}mount-alberpc
+    {_,u}mount-alberpc
 
 # mirror screen
 super + greater
@@ -113,7 +113,7 @@ super + shift + l
     kitty lyrics
 
 # ghci
-XF86Calculator
+XF86Search
     kitty ghci
 
 #
@@ -134,7 +134,7 @@ super + m
 
 # swap the current node and the biggest window in the current desktop
 super + g
-	bspc node -s biggest.window.local.!hidden.window
+	bspc node -s biggest.local.!hidden.window
 
 #
 # state/flags
@@ -146,15 +146,15 @@ super + {i,o,f}
 
 # hide focused/brother window
 super + {_,alt + }h
-    $HOME/.local/bin/bspc-hiding hide{_, brother}
+    bspc-hiding hide{_, brother}
 
 # unhide any window
 super + j
-    $HOME/.local/bin/bspc-hiding unhide any
+    bspc-hiding unhide any
 
 # swap focused node with hidden node
 super + alt + {1-9}
-    $HOME/.local/bin/bspc-hiding swap {1-9}
+    bspc-hiding swap {1-9}
 
 # show hidden windows and unhide/swap
 super + {shift + ,alt + }j
@@ -162,7 +162,7 @@ super + {shift + ,alt + }j
 
 # toggle auto hide/unhide window
 super + k
-    $HOME/.local/bin/bspc-auto-hide-unhide node $(bspc query -N -n)
+    bspc-auto-hide-unhide node $(bspc query -N -n)
 
 #
 # focus/swap
