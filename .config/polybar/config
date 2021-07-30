@@ -13,7 +13,7 @@ alert = #ff5555
 
 [bar/empty]
 width = 100%
-height = 36
+height = 42
 
 background = ${colors.background}
 
@@ -23,7 +23,7 @@ bottom = true
 
 [bar/main-i3]
 width = 1852
-height = 36
+height = 42
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -47,7 +47,7 @@ modules-right = player-mpris-tail i3 pulseaudio
 tray-position = right
 tray-padding = 2
 
-dpi = 120
+dpi = 144
 
 cursor-click = pointer
 
@@ -55,7 +55,7 @@ bottom = true
 
 [bar/clock-i3]
 width = 68
-height = 36
+height = 42
 
 offset-x = 1852
 
@@ -64,7 +64,7 @@ foreground = ${colors.foreground}
 
 padding = 2
 
-font-0 = Inter,Inter Medium:style=Medium,Regular:size=16;4
+font-0 = Inter,Inter Medium:style=Medium,Regular:size=18;4
 
 modules-center = date
 
@@ -77,8 +77,8 @@ override-redirect = true
 bottom = true
 
 [bar/main-bspwm]
-width = 1846
-height = 36
+width = 1840
+height = 42
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -102,7 +102,7 @@ modules-right = player-mpris-tail bspwm-hidden-local bspwm pulseaudio
 tray-position = right
 tray-padding = 2
 
-dpi = 120
+dpi = 144
 
 enable-ipc = true
 
@@ -113,17 +113,17 @@ cursor-click = pointer
 bottom = true
 
 [bar/clock-bspwm]
-width = 74
-height = 36
+width = 80
+height = 42
 
-offset-x = 1846
+offset-x = 1840
 
 background = ${colors.background}
 foreground = ${colors.foreground}
 
 padding = 2
 
-font-0 = Inter,Inter Medium:style=Medium,Regular:size=16;4
+font-0 = Inter,Inter Medium:style=Medium,Regular:size=18;4
 
 modules-center = date
 
