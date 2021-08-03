@@ -3,9 +3,31 @@
 # Assuming yay is run by user with UID 1000
 admin="$(id -nu 1000)"
 cachedir="/home/$admin/.cache/yay"
-removed="$(comm -23 <(basename -a $(find $cachedir -mindepth 1 -maxdepth 1 -type d) | sort) <(for pkg in $(pacman -Qqm); do curl -s "https://aur.archlinux.org/rpc/?v=5&type=info&arg=$pkg" | jq -r '."results"[] | ."PackageBase"'; done | sort) | xargs -r printf "$cachedir/%s\n")"
-echo $removed; exit 1
+yaycache_cachedir="/home/$admin/.cache/yaycache"
+
+mkdir -p "$yaycache_cachedir"
+
+pkgbase_cache() {
+    pkgbase_cachefile="$yaycache_cachedir/pkgbase_cache.txt"
+
+    touch "$pkgbase_cachefile"
+
+    pkgbase="$(awk -v p="$1" '$0 ~ p { print $2 }' "$pkgbase_cachefile")"
+
+    if [[ -z $pkgbase ]]; then
+        pkgbase="$(curl -s "https://aur.archlinux.org/rpc/?v=5&type=info&arg=$1" | jq -r '."results"[] | ."PackageBase"')"
+        printf "%s " "$1" >> "$pkgbase_cachefile"
+        printf "%s\n" "$pkgbase" | tee -a "$pkgbase_cachefile"
+    else
+        printf "%s\n" "$pkgbase"
+    fi
+}
+
+printf "Getting pkgbase for installed foreign packages...\n"
+removed="$(comm -23 <(basename -a $(find $cachedir -mindepth 1 -maxdepth 1 -type d) | sort) <(for pkg in $(pacman -Qqm); do pkgbase_cache $pkg; done | sort) | xargs -r printf "$cachedir/%s\n")"
+
 # Remove yay cache for foreign packages that are not installed anymore
+printf "Removing cache for uninstalled foreign packages...\n"
 rm -rf $removed
 
 pkgcache="$(find $cachedir -mindepth 1 -maxdepth 1 -type d | xargs -r printf "-c %s\n")"
