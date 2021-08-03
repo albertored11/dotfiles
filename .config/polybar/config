@@ -81,9 +81,6 @@ height = 28
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-line-size = 2
-line-color = ${colors.primary}
-
 padding-left = 5
 padding-right = 2
 
