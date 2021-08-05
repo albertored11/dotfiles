@@ -4,12 +4,11 @@
 admin="$(id -nu 1000)"
 cachedir="/home/$admin/.cache/yay"
 yaycache_cachedir="/home/$admin/.cache/yaycache"
+pkgbase_cachefile="$yaycache_cachedir/pkgbase_cache.txt"
 
 mkdir -p "$yaycache_cachedir"
 
 pkgbase_cache() {
-    pkgbase_cachefile="$yaycache_cachedir/pkgbase_cache.txt"
-
     touch "$pkgbase_cachefile"
 
     pkgbase="$(awk -v p="$1" '$0 ~ p { print $2 }' "$pkgbase_cachefile")"
@@ -23,27 +22,30 @@ pkgbase_cache() {
     fi
 }
 
-printf "Getting pkgbase for installed foreign packages...\n"
+pkgbase2pkgname() {
+    awk -v p="$1" '$0 ~ p { print $1 }' "$pkgbase_cachefile"
+}
+
 removed="$(comm -23 <(basename -a $(find $cachedir -mindepth 1 -maxdepth 1 -type d) | sort) <(for pkg in $(pacman -Qqm); do pkgbase_cache $pkg; done | sort) | xargs -r printf "$cachedir/%s\n")"
 
 # Remove yay cache for foreign packages that are not installed anymore
-printf "Removing cache for uninstalled foreign packages...\n"
 rm -rf $removed
 
 pkgcache="$(find $cachedir -mindepth 1 -maxdepth 1 -type d | xargs -r printf "-c %s\n")"
 
 for pkgdir in "$cachedir"/*/; do
-
-    pkgname=$(basename "$pkgdir")
+    pkgbase="$(basename "$pkgdir")"
+    pkgname="$(pkgbase2pkgname "$pkgbase")"
 
     # Remove untracked files (e. g. source/build files) excepting package files and main source files for installed version if non-git package
-    if [[ ! "$pkgname" =~ ^.*-git$ ]]; then
-
-        pkgver="$(pacman -Q $pkgname | cut -d ' ' -f2 | cut -d '-' -f1 | cut -d ':' -f2)"
-
+    if [[ ! "$pkgbase" =~ ^.*-git$ ]]; then
         cd "$pkgdir"
-        rm -f $(git ls-files --others | grep -v -e '^.*\.pkg\.tar.*$' -e '^.*/$' -e "^.*$pkgver.*$" | xargs -r printf "$pkgdir/%s\n")
 
+        pkg="$(echo $pkgname | cut -d ' ' -f1)"
+
+        pkgver="$(pacman -Q $pkg | cut -d ' ' -f2 | cut -d '-' -f1 | cut -d ':' -f2)"
+
+        rm -f $(git ls-files --others | grep -v -e '^.*\.pkg\.tar.*$' -e '^.*/$' -e "^.*$pkgver.*$" | xargs -r printf "$pkgdir/%s\n")
     fi
 
     rm -rf "$pkgdir"/src/
