@@ -40,14 +40,17 @@ cmd=$1
 
 case $cmd in
     create)
-        wid=$(bspc query -N -n focused)
+        wid=$(bspc query -N -n)
         bspc config -n focused border_width 0
         tabbedid=$(tabbed -c -d -k)
         xdotool windowreparent $wid $tabbedid
+        tabbedid0=$(bspc query -N -n) 
+        tabbed-sub "$tabbedid0" &
+        tabbed-unsub "$tabbedid0" &
         ;;
 	add)
 
-		focusedid=$(bspc query -N -n focused)
+		focusedid=$(bspc query -N -n)
         otherid=$(bspc query -N -n $2)
 
         [[ -z $otherid ]] && exit 1
@@ -56,6 +59,9 @@ case $cmd in
             bspc config -n $otherid border_width 0
             tabbedid=$(tabbed -c -d -k)
             xdotool windowreparent $otherid $tabbedid
+            tabbedid0=$(bspc query -N -n)
+            tabbed-sub "$tabbedid0" &
+            tabbed-unsub "$tabbedid0" &
         else
             tabbedid=$otherid
         fi
@@ -71,10 +77,16 @@ case $cmd in
 
         [[ "$(get_class $tabbedid)" == "tabbed" ]] || exit 1
 
+        tabbedsub_px=$(pgrep -P $(pgrep -fo "tabbed-sub $tabbedid") -f "bspc")
+        
+        kill $tabbedsub_px
+
         childid=$(get_clients $tabbedid | head -n1)
         rootid=$(get_root_wid)
 
 		xdotool windowreparent $childid $rootid
+
+        tabbed-sub "$tabbedid" &
 
 #        if [[ "$(get_clients $tabbedid | wc -l)" == "1" ]]; then
 #            childid=$(get_clients $tabbedid)
