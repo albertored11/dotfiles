@@ -238,9 +238,12 @@ super + alt + {a,s,w,d}
 ctrl + alt + {Left,Down,Up,Right}
     tabc add {west,south,north,east}
 
-# remove from tabbed container
+# create/remove from tabbed container
 super + z
-    tabc remove
+    [[ "$(xprop -id $(bspc query -N -n) | sed -n '/WM_CLASS/s/.*, "\(.*\)"/\1/p')" == "tabbed" ]] \
+    && tabc remove \
+    || tabc create
+    
 
 #
 # others
