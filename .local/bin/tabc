@@ -138,16 +138,20 @@ autoattach() {
 get_command() {
     case "$1" in
         create)
-            create $(bspc query -N -n)
+            shift
+            create "$@"
         ;;
         attach)
-            attach $(bspc query -N -n) $2
+            shift
+            attach "$@"
         ;;
         detach)
-            detach $(bspc query -N -n)
+            shift
+            detach "$@"
         ;;
         autoattach)
-            autoattach $(bspc query -N -n)
+            shift
+            autoattach "$@"
         ;;
         *)
             usage
