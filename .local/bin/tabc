@@ -80,25 +80,30 @@ detach() {
         exit 1
     fi
 
-    tabbedsub_px=$(pgrep -P $(pgrep -fo "tabbed-sub $id") -f "bspc")
+    tabbedsub_parentpx=$(pgrep -fo "tabbed-sub $id")
 
-    if [[ -z $tabbedsub_px ]]; then
-        printf "error: subscription process not found\n" >&2
-        exit 1
+    if [[ ! -z $tabbedsub_parentpx ]]; then
+        tabbedsub_px=$(pgrep -P $tabbedsub_parentpx -f "bspc")
+        kill $tabbedsub_px
     fi
-
-    kill $tabbedsub_px
 
     childid=$(get_children $id | head -n1)
     rootid=$(get_root_wid)
 
     xdotool windowreparent $childid $rootid
 
-    tabbed-sub "$id" &
+    if [[ ! -z $tabbedsub_parentpx ]]; then
+        tabbed-sub "$id" &
+    fi
 }
 
 autoattach() {
     id=$1
+
+    if [[ "$(get_class $id)" != "tabbed" ]]; then
+        printf "error: focused window is not a tabbed container\n" >&2 
+        exit 1
+    fi
 
     tabbedsub_parentpx=$(pgrep -fo "tabbed-sub $id")
     tabbedunsub_parentpx=$(pgrep -fo "tabbed-unsub $id")
@@ -160,7 +165,7 @@ get_command() {
 }
 
 main() {
-    [[ "$#" -eq 0 ]] && usage
+    [[ "$#" -le 1 ]] && usage
 
     get_command "$@"
 
