@@ -18,79 +18,117 @@ commands:
 exit 1
 }
 
-# Get wid of root window
 get_root_wid() {
 	xwininfo -root | awk '/Window id:/{print $4}'
 }
 
-# Get children of tabbed container
 get_children() {
 	id=$1
 	xwininfo -id $id -children | sed -n '/[0-9]\+ \(child\|children\):/,$s/ \+\(0x[0-9a-z]\+\).*/\1/p'
 }
 
-# Get class of a wid
 get_class() {
 	id=$1
     xprop -id $id 8s '\t$0' WM_CLASS | cut -f2 | tr -d '"'
 }
 
-cmd=$1
+create() {
+    id=$1
 
-case $cmd in
-    create)
-        focusedid=$(bspc query -N -n)
+    if [[ "$(get_class $id)" == "tabbed" ]]; then
+        printf "error: focused window is a tabbed container\n" >&2
+        exit 1
+    fi
 
-        bspc config -n focused border_width 0
+    bspc config -n $id border_width 0
 
-        tabbedid=$(tabbed -c -d -k)
+    tabbedid=$(tabbed -c -d -k) 
 
-        xdotool windowreparent $focusedid $tabbedid
+    xdotool windowreparent $id $tabbedid
 
-        tabbedid0=$(bspc query -N -n) 
+    tabbedid0=$(bspc query -N -n) 
 
-        tabbed-sub "$tabbedid0" &
-        tabbed-unsub "$tabbedid0" &
+    tabbed-sub "$tabbedid0" &
+    tabbed-unsub "$tabbedid0" &
+}
+
+attach() {
+    focusedid=$1
+    otherid=$2
+
+    if [[ -z $otherid ]]; then
+        printf "error: id of window to attach not specified\n" >&2
+        exit 1
+    fi
+
+    if [[ "$(get_class $otherid)" != "tabbed" ]]; then
+        create $otherid
+    else
+        tabbedid=$otherid
+    fi
+
+    bspc config -n $focusedid border_width 0
+
+    xdotool windowreparent $focusedid $tabbedid
+}
+
+detach() {
+    id=$1
+
+    if [[ "$(get_class $id)" != "tabbed" ]]; then
+        printf "error: focused window is not a tabbed container\n" >&2
+        exit 1
+    fi
+
+    tabbedsub_px=$(pgrep -P $(pgrep -fo "tabbed-sub $id") -f "bspc")
+
+    if [[ -z $tabbedsub_px ]]; then
+        printf "error: subscription process not found\n" >&2
+        exit 1
+    fi
+
+    kill $tabbedsub_px
+
+    childid=$(get_children $id | head -n1)
+    rootid=$(get_root_wid)
+
+    xdotool windowreparent $childid $rootid
+
+    tabbed-sub "$id" &
+}
+
+autoattach() {
+    printf "WIP\n" >&2
+
+    # TODO kill/run tabbed-sub & tabbed-unsub
+}
+
+get_command() {
+    case "$1" in
+        create)
+            create $(bspc query -N -n)
         ;;
-	add)
-		focusedid=$(bspc query -N -n)
-        otherid=$(bspc query -N -n $2)
+        attach)
+            attach $(bspc query -N -n) $2
+        ;;
+        detach)
+            detach $(bspc query -N -n)
+        ;;
+        autoattach)
+            autoattach
+        ;;
+        *)
+            usage
+        ;;
+    esac
+}
 
-        [[ -z $otherid ]] && exit 1
+main() {
+    [[ "$#" -eq 0 ]] && usage
 
-        if [[ "$(get_class $otherid)" != "tabbed" ]]; then
-            bspc config -n $otherid border_width 0
+    get_command "$@"
 
-            tabbedid=$(tabbed -c -d -k)
+    return 0
+}
 
-            xdotool windowreparent $otherid $tabbedid
-
-            tabbedid0=$(bspc query -N -n)
-
-            tabbed-sub "$tabbedid0" &
-            tabbed-unsub "$tabbedid0" &
-        else
-            tabbedid=$otherid
-        fi
-
-        bspc config -n $focusedid border_width 0
-
-		xdotool windowreparent $focusedid $tabbedid
-		;;
-	remove)
-        tabbedid=$(bspc query -N -n focused)
-
-        [[ "$(get_class $tabbedid)" == "tabbed" ]] || exit 1
-
-        tabbedsub_px=$(pgrep -P $(pgrep -fo "tabbed-sub $tabbedid") -f "bspc")
-        
-        kill $tabbedsub_px
-
-        childid=$(get_children $tabbedid | head -n1)
-        rootid=$(get_root_wid)
-
-		xdotool windowreparent $childid $rootid
-
-        tabbed-sub "$tabbedid" &
-		;;
-esac
+main "$@"
