@@ -40,16 +40,20 @@ cmd=$1
 
 case $cmd in
     create)
-        wid=$(bspc query -N -n)
+        focusedid=$(bspc query -N -n)
+
         bspc config -n focused border_width 0
+
         tabbedid=$(tabbed -c -d -k)
-        xdotool windowreparent $wid $tabbedid
+
+        xdotool windowreparent $focusedid $tabbedid
+
         tabbedid0=$(bspc query -N -n) 
+
         tabbed-sub "$tabbedid0" &
         tabbed-unsub "$tabbedid0" &
         ;;
 	add)
-
 		focusedid=$(bspc query -N -n)
         otherid=$(bspc query -N -n $2)
 
@@ -57,9 +61,13 @@ case $cmd in
 
         if [[ "$(get_class $otherid)" != "tabbed" ]]; then
             bspc config -n $otherid border_width 0
+
             tabbedid=$(tabbed -c -d -k)
+
             xdotool windowreparent $otherid $tabbedid
+
             tabbedid0=$(bspc query -N -n)
+
             tabbed-sub "$tabbedid0" &
             tabbed-unsub "$tabbedid0" &
         else
@@ -67,12 +75,10 @@ case $cmd in
         fi
 
         bspc config -n $focusedid border_width 0
+
 		xdotool windowreparent $focusedid $tabbedid
-
 		;;
-
 	remove)
-
         tabbedid=$(bspc query -N -n focused)
 
         [[ "$(get_class $tabbedid)" == "tabbed" ]] || exit 1
@@ -87,16 +93,5 @@ case $cmd in
 		xdotool windowreparent $childid $rootid
 
         tabbed-sub "$tabbedid" &
-
-#        if [[ "$(get_clients $tabbedid | wc -l)" == "1" ]]; then
-#            childid=$(get_clients $tabbedid)
-#            xdotool windowreparent $childid $rootid
-#        fi 
-
-		;;
-
-	list)
-        tabbedid=$2
-		get_clients $tabbedid
 		;;
 esac
