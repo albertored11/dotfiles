@@ -235,16 +235,26 @@ super + alt + {a,s,w,d}
 #
 
 # add to tabbed container
-ctrl + alt + {Left,Down,Up,Right}
-    tabc add {west,south,north,east}
+#ctrl + alt + {Left,Down,Up,Right}
+#    tabc add {west,south,north,east}
+ctrl + alt + Left
+    tabc attach $(bspc query -N -n west)
+
+ctrl + alt + Down
+    tabc attach $(bspc query -N -n south)
+
+ctrl + alt + Up
+    tabc attach $(bspc query -N -n north)
+
+ctrl + alt + Right
+    tabc attach $(bspc query -N -n east)
 
 # create/remove from tabbed container
 super + z
-    [[ "$(xprop -id $(bspc query -N -n) | sed -n '/WM_CLASS/s/.*, "\(.*\)"/\1/p')" == "tabbed" ]] \
-    && tabc remove \
+    [[ "$(xprop -id $(bspc query -N -n) 8s '\t$0' WM_CLASS | cut -f2 | tr -d '"')" == "tabbed" ]] \
+    && tabc detach \
     || tabc create
     
-
 #
 # others
 #
