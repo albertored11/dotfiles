@@ -24,11 +24,13 @@ get_root_wid() {
 
 get_children() {
 	id=$1
-	xwininfo -id $id -children | sed -n '/[0-9]\+ \(child\|children\):/,$s/ \+\(0x[0-9a-z]\+\).*/\1/p'
+
+	xwininfo -id $id -children | awk '$1 ~ /0x.*/{print $1}'
 }
 
 get_class() {
 	id=$1
+
     xprop -id $id 8s '\t$0' WM_CLASS | cut -f2 | tr -d '"'
 }
 
