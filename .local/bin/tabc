@@ -1,40 +1,39 @@
 #!/usr/bin/env bash
 
-# Usage:
-# tabc <command>
-# Commands:
-#    add <direction-of-tabbed> <window-id> - Add window to tabbed
-#    remove <window-id> - Remove window from tabbed
-#    list <tabbed-id> - List all clients of tabbed
+program_name="$(basename "$0")"
 
-#
-# Functions
-#
+usage() {
+printf "%s" "\
+usage: $program_name <command>
+
+commands:
+    create          create new tabbed container and add focused window.
+    attach <wid>    attach focused window to tabbed container <wid> (if it
+                    isn't one, create it first).
+    detach          detach focused window from tabbed container.
+    autoattach      toggle autoattach new windows to tabbed container (enabled
+                    by default).
+"
+
+exit 1
+}
 
 # Get wid of root window
-function get_root_wid {
+get_root_wid() {
 	xwininfo -root | awk '/Window id:/{print $4}'
 }
 
-# Get children of tabbed
-function get_clients {
+# Get children of tabbed container
+get_children() {
 	id=$1
 	xwininfo -id $id -children | sed -n '/[0-9]\+ \(child\|children\):/,$s/ \+\(0x[0-9a-z]\+\).*/\1/p'
 }
 
 # Get class of a wid
-function get_class {
+get_class() {
 	id=$1
-  if [ -z $id ]; then
-    echo ""
-  else
-	  xprop -id $id | sed -n '/WM_CLASS/s/.*, "\(.*\)"/\1/p'
-  fi
+    xprop -id $id 8s '\t$0' WM_CLASS | cut -f2 | tr -d '"'
 }
-
-#
-# Main Program
-#
 
 cmd=$1
 
@@ -87,7 +86,7 @@ case $cmd in
         
         kill $tabbedsub_px
 
-        childid=$(get_clients $tabbedid | head -n1)
+        childid=$(get_children $tabbedid | head -n1)
         rootid=$(get_root_wid)
 
 		xdotool windowreparent $childid $rootid
