@@ -7,12 +7,12 @@ printf "%s" "\
 usage: $program_name <command>
 
 commands:
-    create          create new tabbed container and add focused window.
-    attach <wid>    attach focused window to tabbed container <wid> (if it
-                    isn't one, create it first).
-    detach          detach focused window from tabbed container.
-    autoattach      toggle autoattach new windows to tabbed container (enabled
-                    by default).
+    create <wid>            create new tabbed container and add window <wid>.
+    attach <wid0> <wid1>    attach window <wid0> to tabbed container <wid1> (if
+                            it isn't one, create it first).
+    detach <wid>            detach window <wid> from tabbed container.
+    autoattach <wid>        toggle autoattach new windows to tabbed container
+                            <wid> (enabled by default).
 "
 
 exit 1
@@ -36,7 +36,7 @@ create() {
     id=$1
 
     if [[ "$(get_class $id)" == "tabbed" ]]; then
-        printf "error: focused window is a tabbed container\n" >&2
+        printf "error: window is a tabbed container\n" >&2
         exit 1
     fi
 
@@ -76,7 +76,7 @@ detach() {
     id=$1
 
     if [[ "$(get_class $id)" != "tabbed" ]]; then
-        printf "error: focused window is not a tabbed container\n" >&2
+        printf "error: window is not a tabbed container\n" >&2
         exit 1
     fi
 
@@ -101,7 +101,7 @@ autoattach() {
     id=$1
 
     if [[ "$(get_class $id)" != "tabbed" ]]; then
-        printf "error: focused window is not a tabbed container\n" >&2 
+        printf "error: window is not a tabbed container\n" >&2 
         exit 1
     fi
 
