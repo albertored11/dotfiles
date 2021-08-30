@@ -10,7 +10,7 @@ commands:
     create <wid>            create new tabbed container and add window <wid>.
     attach <wid0> <wid1>    attach window <wid0> to tabbed container <wid1> (if
                             it isn't one, create it first).
-    detach <wid>            detach window <wid> from tabbed container.
+    detach <wid>            detach active window from tabbed container <wid>.
     autoattach <wid>        toggle autoattach new windows to tabbed container
                             <wid> (enabled by default).
 "
