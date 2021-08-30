@@ -129,6 +129,8 @@ attach() {
     bspc config -n $focusedid border_width 0
 
     xdotool windowreparent $focusedid $tabbedid
+
+    bspc node -f $tabbedid
 }
 
 autoattach() {
