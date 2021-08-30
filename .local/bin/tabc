@@ -96,27 +96,34 @@ detach() {
     xdotool windowreparent $childid $rootid
 
     childrenid=$(get_children $id)
-    newtabbedid=$(tabbed -c -d -k)
 
-    for child in $childrenid; do
-        xdotool windowreparent $child $rootid
-        bspc config -n $child border_width 0
-    done
+    if [[ ! -z $childrenid ]]; then
+        newtabbedid=$(tabbed -c -d -k)
 
-    for child in $childrenid; do
-        xdotool windowreparent $child $newtabbedid
-    done
+        for child in $childrenid; do
+            xdotool windowreparent $child $rootid
+            bspc config -n $child border_width 0
+        done
 
-    bspc node -s $childid
+        for child in $childrenid; do
+            xdotool windowreparent $child $newtabbedid
+        done
 
-    newtabbedid0=$(bspc query -N -n)
+        bspc node -s $childid
 
-    if [[ ! -z $tabbedsub_parentpx ]]; then
-        tabbed-sub "$newtabbedid0" &
-        tabbed-unsub "$newtabbedid0" &
+        newtabbedid0=$(bspc query -N -n)
+
+        if [[ ! -z $tabbedsub_parentpx ]]; then
+            tabbed-sub "$newtabbedid0" &
+            tabbed-unsub "$newtabbedid0" &
+        fi
+
+        bspc node -f $childid
+    else
+        if [[ ! -z $tabbedsub_parentpx ]]; then
+            tabbed-sub "$id" &
+        fi
     fi
-
-    bspc node -f $childid
 }
 
 autoattach() {
