@@ -54,7 +54,6 @@ create() {
     tabbed-unsub "$tabbedid0" &
 }
 
-# TODO: fix position when attaching to a window that is not a tabbed container
 attach() {
     focusedid=$1
     otherid=$2
@@ -65,6 +64,7 @@ attach() {
     fi
 
     if [[ "$(get_class $otherid)" != "tabbed" ]]; then
+        bspc node -f $otherid
         create $otherid
     else
         tabbedid=$otherid
