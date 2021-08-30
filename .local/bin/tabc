@@ -48,12 +48,13 @@ create() {
 
     xdotool windowreparent $id $tabbedid
 
-    tabbedid0=$(bspc query -N -n) 
+    tabbedid0=$(bspc query -N -n)
 
     tabbed-sub "$tabbedid0" &
     tabbed-unsub "$tabbedid0" &
 }
 
+# TODO: fix position when attaching to a window that is not a tabbed container
 attach() {
     focusedid=$1
     otherid=$2
@@ -94,9 +95,28 @@ detach() {
 
     xdotool windowreparent $childid $rootid
 
+    childrenid=$(get_children $id)
+    newtabbedid=$(tabbed -c -d -k)
+
+    for child in $childrenid; do
+        xdotool windowreparent $child $rootid
+        bspc config -n $child border_width 0
+    done
+
+    for child in $childrenid; do
+        xdotool windowreparent $child $newtabbedid
+    done
+
+    bspc node -s $childid
+
+    newtabbedid0=$(bspc query -N -n)
+
     if [[ ! -z $tabbedsub_parentpx ]]; then
-        tabbed-sub "$id" &
+        tabbed-sub "$newtabbedid0" &
+        tabbed-unsub "$newtabbedid0" &
     fi
+
+    bspc node -f $childid
 }
 
 autoattach() {
