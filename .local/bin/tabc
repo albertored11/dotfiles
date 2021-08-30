@@ -54,27 +54,6 @@ create() {
     tabbed-unsub "$tabbedid0" &
 }
 
-attach() {
-    focusedid=$1
-    otherid=$2
-
-    if [[ -z $otherid ]]; then
-        printf "error: id of window to attach not specified\n" >&2
-        exit 1
-    fi
-
-    if [[ "$(get_class $otherid)" != "tabbed" ]]; then
-        bspc node -f $otherid
-        create $otherid
-    else
-        tabbedid=$otherid
-    fi
-
-    bspc config -n $focusedid border_width 0
-
-    xdotool windowreparent $focusedid $tabbedid
-}
-
 detach() {
     id=$1
 
@@ -124,6 +103,32 @@ detach() {
             tabbed-sub "$id" &
         fi
     fi
+}
+
+attach() {
+    focusedid=$1
+    otherid=$2
+
+    if [[ -z $otherid ]]; then
+        printf "error: id of window to attach not specified\n" >&2
+        exit 1
+    fi
+
+    if [[ "$(get_class $focusedid)" == "tabbed" ]]; then
+        detach $focusedid
+        focusedid=$(bspc query -N -n)
+    fi
+
+    if [[ "$(get_class $otherid)" != "tabbed" ]]; then
+        bspc node -f $otherid
+        create $otherid
+    else
+        tabbedid=$otherid
+    fi
+
+    bspc config -n $focusedid border_width 0
+
+    xdotool windowreparent $focusedid $tabbedid
 }
 
 autoattach() {
