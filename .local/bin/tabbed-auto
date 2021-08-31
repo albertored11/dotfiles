@@ -7,6 +7,9 @@ bspc subscribe node_add | while read id; do
 
     focusedid=$(bspc query -N -n)
     id=$(echo $id | cut -d ' ' -f5)
+
+    [[ -z $(bspc query -N -n $id.!floating) ]] && continue
+
     info="$(xprop -id $id 8s '\t$0' WM_CLASS)"
 
     [[ $? -eq 0 ]] || continue
