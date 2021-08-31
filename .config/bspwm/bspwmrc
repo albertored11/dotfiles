@@ -24,8 +24,10 @@ bspc rule -a Pavucontrol        state=floating
 bspc rule -a Blueman-manager    state=floating
 bspc rule -a Zathura            state=tiled
 
-tabbed-auto pcmanfm-qt &
 $HOME/.local/bin/bspc-polybar-color &
+
+tabbed-auto pcmanfm-qt &
+tabbed-refresh &
 
 wmname LG3D &
 xsetroot -cursor_name left_ptr &
