@@ -5,12 +5,12 @@ classes="$@"
 bspc subscribe node_add | while read id; do
     sleep 0.1
 
-    focusedid=$(bspc query -N -n)
     id=$(echo $id | cut -d ' ' -f5)
 
     [[ -z $(bspc query -N -n $id.!floating) ]] && continue
 
     info="$(xprop -id $id 8s '\t$0' WM_CLASS)"
+    focusedid=$(bspc query -N -n)
 
     [[ $? -eq 0 ]] || continue
 
