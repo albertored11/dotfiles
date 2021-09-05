@@ -42,15 +42,19 @@ super + Escape
 super + shift + Escape
 	pkill -USR1 -x sxhkd
 
-# volume up/down
+# volume up/down (5%)
 XF86Audio{RaiseVolume,LowerVolume}
-    $HOME/.local/bin/volume-notif {up,down}
+    volume-notif {up,down}
     #amixer -q sset Master unmute && amixer -q sset Master 5%{+,-}
     #pactl set-sink-mute @DEFAULT_SINK@ false; pactl set-sink-volume @DEFAULT_SINK@ {+,-}5%
 
+# volume up/down (1%)
+shift + XF86Audio{RaiseVolume,LowerVolume}
+    volume-notif {up,down} 1
+
 # mute/unmute volume
 XF86AudioMute
-    $HOME/.local/bin/volume-notif toggle
+    volume-notif toggle
     #amixer -q sset Master toggle
     #pactl set-sink-mute @DEFAULT_SINK@ toggle
 
@@ -64,11 +68,11 @@ super + {Home,End}
 
 # lock screen
 super + l
-    $HOME/.local/bin/lock-screen
+    lock-screen
 
 # take screenshot (full screen/crop/active window/current monitor)
 {_,shift + ,super + ,ctrl +}Print
-    $HOME/.local/bin/take-screenshot {fullscr,crop,activewin,mon} "$HOME/Nextcloud/Capturas de pantalla/alberpc"
+    take-screenshot {fullscr,crop,activewin,mon} "$HOME/Nextcloud/Capturas de pantalla/alberpc"
 
 # powermenu
 {ctrl + alt + Delete,XF86PowerOff,XF86Sleep}
@@ -89,6 +93,10 @@ super + shift + l
 # ghci
 XF86Calculator
     kitty ghci
+
+# restart polybar
+super + shift + p
+    $HOME/.config/polybar/launch-bspwm.sh
 
 #
 # bspwm hotkeys
@@ -114,21 +122,21 @@ super + g
 # state/flags
 #
 
-# set the window state
+# set the window state TODO hide tabs when fullscr in tabbed containers
 super + {i,o,f}
     bspc node -t {tiled,floating,fullscreen}
 
 # hide focused/brother window
 super + {_,alt + }h
-    $HOME/.local/bin/bspc-hiding hide{_, brother}
+    bspc-hiding hide{_, brother}
 
 # unhide any window
 super + j
-    $HOME/.local/bin/bspc-hiding unhide any
+    bspc-hiding unhide any
 
 # swap focused node with hidden node
 super + alt + {1-9}
-    $HOME/.local/bin/bspc-hiding swap {1-9}
+    bspc-hiding swap {1-9}
 
 # show hidden windows and unhide/swap
 super + {shift + ,alt + }j
@@ -136,7 +144,7 @@ super + {shift + ,alt + }j
 
 # toggle auto hide/unhide window
 super + k
-    $HOME/.local/bin/bspc-auto-hide-unhide node $(bspc query -N -n)
+    bspc-auto-hide-unhide node $(bspc query -N -n)
 
 #
 # focus/swap
