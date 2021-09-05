@@ -42,11 +42,15 @@ super + Escape
 super + shift + Escape
 	pkill -USR1 -x sxhkd
 
-# volume up/down
+# volume up/down (5%)
 XF86Audio{RaiseVolume,LowerVolume}
     volume-notif {up,down}
     #amixer -q sset Master unmute && amixer -q sset Master 5%{+,-}
     #pactl set-sink-mute @DEFAULT_SINK@ false; pactl set-sink-volume @DEFAULT_SINK@ {+,-}5%
+
+# volume up/down (1%)
+shift + XF86Audio{RaiseVolume,LowerVolume}
+    volume-notif {up,down} 1
 
 # mute/unmute volume
 XF86AudioMute
@@ -116,6 +120,10 @@ super + shift + l
 XF86Search
     kitty ghci
 
+# restart polybar
+super + shift + p
+    $HOME/.config/polybar/launch-bspwm.sh
+
 #
 # bspwm hotkeys
 #
@@ -140,7 +148,7 @@ super + g
 # state/flags
 #
 
-# set the window state
+# set the window state TODO hide tabs when fullscr in tabbed containers
 super + {i,o,f}
     bspc node -t {tiled,floating,fullscreen}
 

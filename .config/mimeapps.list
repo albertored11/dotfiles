@@ -8,6 +8,11 @@ application/pdf=org.pwmt.zathura.desktop;
 text/css=visual-studio-code.desktop;
 text/plain=visual-studio-code.desktop;
 text/markdown=visual-studio-code.desktop;jetbrains-idea.desktop;
+text/x-makefile=visual-studio-code.desktop;
+application/xhtml+xml=chromium.desktop;
+application/x-virtualbox-vmdk=visual-studio-code.desktop;
+application/x-shellscript=visual-studio-code.desktop;
+image/gif=mpv.desktop;
 
 [Default Applications]
 application/x-yaml=visual-studio-code.desktop;
