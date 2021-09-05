@@ -18,6 +18,7 @@ text/x-makefile=visual-studio-code.desktop;
 application/xhtml+xml=chromium.desktop;
 application/x-virtualbox-vmdk=visual-studio-code.desktop;
 application/x-shellscript=visual-studio-code.desktop;
+image/gif=mpv.desktop;
 
 [Default Applications]
 application/bmpr=balsamiq-wireframes-bmpr.desktop

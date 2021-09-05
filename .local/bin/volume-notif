@@ -1,18 +1,22 @@
 #!/usr/bin/env bash
 
 usage() {
-    echo "usage: $(basename "$0") <up/down/toggle>" >&2
+    echo "usage: $(basename "$0") <up/down/toggle> [diff%]" >&2
     exit 1
 }
 
-[[ "$#" -eq 1 ]] || usage
+[[ "$#" -ge 1 ]] || usage
+
+diff=$2
+
+[[ -z $diff ]] && diff=5
 
 case "$1" in
     up)
-        amixer -q sset Master unmute && amixer -q sset Master 5%+
+        amixer -q sset Master unmute && amixer -q sset Master $diff%+
     ;;
     down)
-        amixer -q sset Master unmute && amixer -q sset Master 5%-
+        amixer -q sset Master unmute && amixer -q sset Master $diff%-
     ;;
     toggle)
         amixer -q sset Master toggle
