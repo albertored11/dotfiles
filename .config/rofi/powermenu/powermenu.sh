@@ -92,8 +92,8 @@ case $chosen in
 		#if [[ $ans == "yes" || $ans == "YES" || $ans == "y" || $ans == "Y" ]]; then
 		#	mpc -q pause
 		#	amixer set Master mute
-            $HOME/.local/bin/umount-alberpc && sleep 1
-			systemctl hibernate
+        $HOME/.local/bin/umount-alberpc && sleep 1
+		systemctl hibernate
 		#elif [[ $ans == "no" || $ans == "NO" || $ans == "n" || $ans == "N" ]]; then
 		#	exit 0
         #else
