@@ -24,6 +24,7 @@ bspc rule -a Blueman-manager    state=floating
 bspc rule -a Zathura            state=tiled
 
 tabbed-refresh &
+wa-chromium-notif &
 
 wmname LG3D &
 xsetroot -cursor_name left_ptr &
