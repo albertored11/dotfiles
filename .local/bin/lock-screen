@@ -1,7 +1,15 @@
 #!/usr/bin/env sh
 
+background=282a36
+current_line=44475a
+foreground=f8f8f2
+comment=6272a4
+pink=ff79c6
+purple=bd93f9
+red=ff5555
+
 dunstctl set-paused true
 
-i3lock -n -e -t -i /home/herbort/Nextcloud/Fondos\ de\ pantalla/Somali\ to\ Mori\ no\ Kamisama/Screenshot_20210101_173118.png -k --insidever-color=282a36 --insidewrong-color=282a36 --inside-color=282a36 --ringver-color=ff79c6 --ringwrong-color=ff5555 --ring-color=44475a --line-uses-inside --keyhl-color=bd93f9 --bshl-color=6272a4 --separator-color=44475a --time-color=f8f8f2 --time-str="%-H:%M" --time-pos="ix:iy-250" --date-color=f8f8f2 --date-str="%a, %d de %b de %Y" --time-font="Inter Medium" --date-font="Inter Medium" --time-size=80 --date-size=20 --date-pos="tx:ty+40" --verif-text="" --wrong-text="" --noinput-text="" --no-modkey-text
+i3lock -n -e -t -i /home/herbort/Nextcloud/Fondos\ de\ pantalla/Somali\ to\ Mori\ no\ Kamisama/Screenshot_20210101_173118.png -k --insidever-color=$background --insidewrong-color=$background --inside-color=$background --ringver-color=$pink --ringwrong-color=$red --ring-color=$current_line --line-uses-inside --keyhl-color=$purple --bshl-color=$comment --separator-color=$current_line --time-color=$foreground --time-str="%-H:%M" --time-pos="ix:iy-250" --date-color=$foreground --date-str="%a, %d de %b de %Y" --time-font="Inter Medium" --date-font="Inter Medium" --time-size=80 --date-size=20 --date-pos="tx:ty+40" --verif-text="" --wrong-text="" --noinput-text="" --no-modkey-text
 
 dunstctl set-paused false
