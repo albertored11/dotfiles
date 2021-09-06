@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+pw="/tmp/prev_win"
+
+printf "\n" > "$pw"
+
+bspc subscribe desktop_focus node_focus | while read; do
+    node=$(bspc query -N -n)
+    desktop=$(bspc query -D -d)
+    pw_node=$(awk "NR==2" "$pw")
+    pw_desktop=$(awk "NR==1" "$pw")
+
+    printf "%s\n%s\n" $desktop $node > "$pw"
+
+    [[ -z $pw_node ]] && continue
+
+    if [[ "$(xtitle $pw_node)" =~ ^.*WhatsApp\ -\ Chromium$ ]]; then
+        sleep 0.2
+
+        bspc desktop -f $pw_desktop
+        bspc node -f $pw_node
+
+        xdotool key ctrl+t
+
+        bspc desktop -f $desktop
+        bspc node -f $node
+    fi
+done
