@@ -9,7 +9,7 @@ list_devices() {
         mac="$(echo $line | cut -d ' ' -f2)"
         macs+=("$mac")
 
-        con="$(bluetoothctl -- info $mac | grep "Connected" | cut -d ' ' -f2)"
+        con="$(bluetoothctl -- info $mac | awk '/Connected: /{print $2}')"
         cons+=("$con")
 
         [[ "$con" == "yes" ]] && prefix="[*] " || prefix=""
@@ -49,7 +49,7 @@ list_devices() {
     fi
 }
 
-powered="$(bluetoothctl -- show | grep "Powered" | cut -d ' ' -f2)"
+powered="$(bluetoothctl -- show | awk '/Powered: /{print $2}')"
 
 if [[ "$powered" == "yes" ]]; then
     list_devices
