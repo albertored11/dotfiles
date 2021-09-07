@@ -2,7 +2,7 @@
 
 ## summary
 
-These dotfiles belong to my personal desktop, which features an Arch Linux installation with [bspwm](https://github.com/baskerville/bspwm) as WM and the [Dracula theme](https://draculatheme.com/) as main color scheme.
+These dotfiles belong to my personal desktop, which features an Arch Linux installation with [bspwm](https://github.com/baskerville/bspwm) as WM and the [Nord theme](https://nordtheme.com/) as main color scheme.
 
 My setup consists in a custom box:
 - Intel i7-10700 (8/16 @ 2.90/4.80 GHz)
@@ -15,7 +15,7 @@ with 2x 21.5" 1920x1080 @ 60 Hz HP EliteDisplay E223 monitors.
 
 ## screenshot
 
-![Screenshot](Nextcloud/Capturas%20de%20pantalla/alberpc/screenshot_20210427_005624.png)
+*Coming soon...*
 
 ## pkg choices
 
