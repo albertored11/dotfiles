@@ -1,15 +1,12 @@
 [colors]
-background-real = #b0282a36
+background-real = #B02E3440
 background = #00000000
-;background-alt = #8044475a
-background-alt = #80676a7e
-background-alt-1 = #40676a7e
-foreground = #f8f8f2
-foreground-alt = #6272a4
-primary = #bd93f9
-;secondary = #ff79c6
-secondary = #bd93f9
-alert = #ff5555
+background-alt = #80929AAA
+background-alt-1 = #40929AAA
+foreground = #D8DEE9
+primary = #88C0D0
+secondary = #8FBCBB
+alert = #BF616A
 
 [bar/empty]
 width = 100%
