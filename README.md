@@ -2,7 +2,7 @@
 
 ## summary
 
-These dotfiles belong to my personal notebook, which features an Arch Linux installation with [bspwm](https://github.com/baskerville/bspwm) as WM and the [Dracula theme](https://draculatheme.com/) as main color scheme.
+These dotfiles belong to my personal notebook, which features an Arch Linux installation with [bspwm](https://github.com/baskerville/bspwm) as WM and the [Nord theme](https://nordtheme.com/) as main color scheme.
 
 Model is Dell XPS 13 9370:
 - Intel i5-8250U (4/8 @ 1.60/3.40 GHz)
@@ -13,7 +13,7 @@ Model is Dell XPS 13 9370:
 
 ## screenshot
 
-![Screenshot](Nextcloud/Capturas%20de%20pantalla/alberbook/unixporn-dracula-bake.png)
+*Coming soon...*
 
 ## pkg choices
 
