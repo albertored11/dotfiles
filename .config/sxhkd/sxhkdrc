@@ -136,6 +136,10 @@ super + alt + r
 super + q
 	bspc node -c
 
+# close brother
+super + shift + q
+    bspc node @brother -c
+
 # alternate between the tiled and monocle layout
 super + m
 	bspc desktop -l next
