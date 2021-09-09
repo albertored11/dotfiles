@@ -8,7 +8,7 @@ pink=B48EAD
 purple=88C0D0
 red=BF616A
 
-[[ -z "$(pgrep -f i3lock)" ]] || return 1
+[[ -z "$(pgrep -f ^i3lock)" ]] || exit 1
 
 killall -SIGUSR1 dunst
 

@@ -6,5 +6,9 @@ maxtime=300000
 while true; do
     sleep $sltime
 
-    [[ $(xprintidle) -ge $maxtime ]] && lock-screen
+    if [[ $(xprintidle) -ge $maxtime ]] && [[ -z "$(pgrep -f ^i3lock)" ]]; then
+        lock-screen &
+        sleep 0.5
+        xset dpms force off
+    fi
 done
