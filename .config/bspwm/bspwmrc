@@ -28,6 +28,7 @@ bspc-polybar-color &
 tabbed-refresh &
 wa-chromium-notif &
 low-battery-notif &
+check-idle &
 
 wmname LG3D &
 xsetroot -cursor_name left_ptr &

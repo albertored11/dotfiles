@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+sltime=30
+maxtime=300000
+
+while true; do
+    sleep $sltime
+
+    [[ $(xprintidle) -ge $maxtime ]] && lock-screen
+done
