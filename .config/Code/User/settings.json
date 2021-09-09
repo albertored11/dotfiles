@@ -1,0 +1,36 @@
+{
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "files.exclude": {
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
+    },
+    "redhat.telemetry.enabled": true,
+    "liveshare.authenticationProvider": "GitHub",
+    "workbench.colorTheme": "Dracula",
+    "editor.fontFamily": "monospace",
+    "C_Cpp.intelliSenseEngine": "Tag Parser",
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true,
+    "workbench.startupEditor": "newUntitledFile",
+    "editor.minimap.enabled": false,
+    "files.associations": {
+        "*.pl": "prolog"
+    },
+    "window.zoomLevel": 0,
+    "workbench.activityBar.visible": true,
+    "python.pythonPath": "/usr/bin/python3",
+    "editor.wordWrap": "on",
+    "editor.fontLigatures": true,
+    "java.project.importOnFirstTimeStartup": "automatic",
+    "markdown.preview.fontFamily": "sans-serif",
+    "window.menuBarVisibility": "toggle",
+    "workbench.editor.untitled.hint": "hidden",
+    "editor.smoothScrolling": true,
+    "workbench.list.smoothScrolling": true,
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter.notebook.ipynb"
+    }
+}
