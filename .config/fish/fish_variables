@@ -36,7 +36,7 @@ SETUVAR Z_DATA_DIR:/home/herbort/\x2elocal/share/z
 SETUVAR Z_EXCLUDE:\x5e/home/herbort\x24
 SETUVAR __fish_initialized:3100
 SETUVAR _fisher_dracula_2F_fish_files:/home/herbort/\x2econfig/fish/conf\x2ed/dracula\x2efish
-SETUVAR _fisher_jethrokuan_2F_fzf_files:/home/herbort/\x2econfig/fish/functions/bax\x2efish\x1e/home/herbort/\x2econfig/fish/functions/replay\x2efish\x1e/home/herbort/\x2econfig/fish/completions/replay\x2efish
+SETUVAR _fisher_jethrokuan_2F_fzf_files:/home/herbort/\x2econfig/fish/functions/__fzf_cd\x2efish\x1e/home/herbort/\x2econfig/fish/functions/__fzf_complete\x2efish\x1e/home/herbort/\x2econfig/fish/functions/__fzf_complete_preview\x2efish\x1e/home/herbort/\x2econfig/fish/functions/__fzf_find_file\x2efish\x1e/home/herbort/\x2econfig/fish/functions/__fzf_get_dir\x2efish\x1e/home/herbort/\x2econfig/fish/functions/__fzf_open\x2efish\x1e/home/herbort/\x2econfig/fish/functions/__fzf_parse_commandline\x2efish\x1e/home/herbort/\x2econfig/fish/functions/__fzf_reverse_isearch\x2efish\x1e/home/herbort/\x2econfig/fish/functions/__fzfcmd\x2efish\x1e/home/herbort/\x2econfig/fish/conf\x2ed/fzf\x2efish
 SETUVAR _fisher_jethrokuan_2F_z_files:/home/herbort/\x2econfig/fish/functions/__z\x2efish\x1e/home/herbort/\x2econfig/fish/functions/__z_add\x2efish\x1e/home/herbort/\x2econfig/fish/functions/__z_clean\x2efish\x1e/home/herbort/\x2econfig/fish/functions/__z_complete\x2efish\x1e/home/herbort/\x2econfig/fish/conf\x2ed/z\x2efish
 SETUVAR _fisher_markcial_2F_upto_files:/home/herbort/\x2econfig/fish/functions/upto\x2efish\x1e/home/herbort/\x2econfig/fish/completions/upto\x2efish
 SETUVAR _fisher_plugins:jethrokuan/fzf\x1ejethrokuan/z\x1emarkcial/upto\x1edracula/fish
