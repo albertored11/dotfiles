@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# TODO: check if monocle/tiled layout
+
 bspc subscribe node_add node_remove node_transfer node_flag node_state desktop_focus | while read; do
     if [[ $(bspc query -N -n .!hidden.tiled.local.window | wc -l) == "1" ]]; then
         feh --no-fehbg --bg-tile --image-bg '#2E3440' '/home/herbort/Nextcloud/Fondos de pantalla/nord_shibuya_polybar_36_solid.png'
