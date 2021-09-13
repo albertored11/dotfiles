@@ -26,7 +26,6 @@ bspc rule -a Zathura            state=tiled
 
 bspc-polybar-color &
 tabbed-refresh &
-wa-chromium-notif &
 
 wmname LG3D &
 xsetroot -cursor_name left_ptr &
