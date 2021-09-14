@@ -30,7 +30,6 @@ bspc rule -a Zathura            state=tiled
 
 launch_bash_script bspc-polybar-color
 launch_bash_script tabbed-refresh
-launch_bash_script wa-chrome-notif
 launch_bash_script low-battery-notif
 launch_bash_script check-idle
 

@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# TODO autocerrar nueva pestaña y no activar si no se cambia de escritorio/monitor
+
 pw="/tmp/prev_win"
 
 printf "\n" > "$pw"
