@@ -1,5 +1,9 @@
 #! /bin/sh
 
+launch_bash_script() {
+    pgrep -fx "bash $(which $1)" > /dev/null || $1 &
+}
+
 pgrep -x sxhkd > /dev/null || sxhkd &
 
 bspc monitor -d 1 2 3 4 5 6 7 8 9 10
@@ -24,11 +28,11 @@ bspc rule -a Pavucontrol        state=floating
 bspc rule -a Blueman-manager    state=floating
 bspc rule -a Zathura            state=tiled
 
-bspc-polybar-color &
-tabbed-refresh &
-wa-chromium-notif &
-low-battery-notif &
-check-idle &
+launch_bash_script bspc-polybar-color
+launch_bash_script tabbed-refresh
+launch_bash_script wa-chrome-notif
+launch_bash_script low-battery-notif
+launch_bash_script check-idle
 
 wmname LG3D &
 xsetroot -cursor_name left_ptr &

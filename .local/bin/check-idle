@@ -6,7 +6,7 @@ maxtime=300000
 while true; do
     sleep $sltime
 
-    if [[ $(xprintidle) -ge $maxtime ]]; then
+    if [[ -z "$(bspc query -N -n .local.fullscreen)" ]] && [[ $(xprintidle) -ge $maxtime ]]; then
         lock-screen &
         sleep 0.5
         xset dpms force off

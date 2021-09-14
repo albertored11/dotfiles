@@ -14,7 +14,7 @@ bspc subscribe desktop_focus node_focus | while read; do
 
     [[ -z $pw_node ]] && continue
 
-    if [[ "$(xtitle $pw_node)" =~ ^.*WhatsApp\ -\ Google Chrome$ ]]; then
+    if [[ "$(xtitle $pw_node)" =~ ^.*WhatsApp\ -\ Google\ Chrome$ ]]; then
         sleep 0.2
 
         bspc desktop -f $pw_desktop
