@@ -7,8 +7,6 @@ low_warn=0
 critical_warn=0
 
 while true; do
-    sleep $sltime
-
     charging="$(cat /sys/class/power_supply/BAT0/status)"
 
     if [[ "$charging" != "Discharging" ]]; then
@@ -28,4 +26,6 @@ while true; do
         dunstify -a "Batería baja" "La batería está al $low_level% o menos."
         low_warn=1
     fi
+
+    sleep $sltime
 done
