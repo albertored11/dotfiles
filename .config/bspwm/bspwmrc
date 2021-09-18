@@ -44,4 +44,5 @@ dunst &
 nextcloud &
 libinput-gestures &
 nm-applet &
+clipster -d &
 $HOME/.config/redshift/launch.sh &
