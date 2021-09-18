@@ -22,11 +22,11 @@ case "$1" in
         brightnessctl -q set 5%-
     ;;
     off)
-        awk -F "," '{ print $4 }' <(brightnessctl i -m) > "$pb"
+        brightnessctl i -m | awk -F "," '{ print $4 }' > "$pb"
         brightnessctl -q set 0
     ;;
 esac
 
-desc="$(awk -F "," '{ print $4 }' <(brightnessctl i -m))"
+desc="$(brightnessctl i -m | awk -F "," '{ print $4 }')"
 
 dunstify -a "Brillo" "$desc"
