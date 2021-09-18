@@ -38,4 +38,5 @@ picom --experimental-backends &
 unclutter &
 dunst &
 nextcloud &
+clipster -d &
 $HOME/.config/redshift/launch.sh &

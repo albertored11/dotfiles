@@ -98,6 +98,10 @@ XF86Calculator
 super + shift + p
     $HOME/.config/polybar/launch-bspwm.sh
 
+# clipboard selector
+super + {_,alt + }p
+    clipster -s{_,p}
+
 #
 # bspwm hotkeys
 #
