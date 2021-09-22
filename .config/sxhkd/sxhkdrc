@@ -36,7 +36,7 @@ super + shift + o
 
 # program launcher
 super + Escape
-    launcher
+    $HOME/.config/rofi/launchers/misc/launcher.sh
 
 # make sxhkd reload its configuration files:
 super + shift + Escape

@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-
-px=$(pgrep -f "rofi.*drun.*")
-
-if [[ -z $px ]]; then
-    $HOME/.config/rofi/launchers/misc/launcher.sh
-else
-    kill $px
-fi

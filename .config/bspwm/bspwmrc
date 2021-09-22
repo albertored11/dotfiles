@@ -26,7 +26,6 @@ bspc rule -a lxqt-archiver      state=floating
 bspc rule -a Pavucontrol        state=floating
 bspc rule -a Blueman-manager    state=floating
 bspc rule -a Zathura            state=tiled
-bspc rule -a Rofi               state=floating  border=off
 
 launch_bash_script tabbed-refresh
 
