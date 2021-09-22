@@ -36,7 +36,7 @@ super + shift + o
 
 # program launcher
 super + Escape
-    launcher
+    $HOME/.config/rofi/launchers/misc/launcher.sh
 
 # make sxhkd reload its configuration files:
 super + shift + Escape
@@ -101,7 +101,7 @@ super + less
 
 # mount/unmount alberpc
 super + {_,shift + } u
-    {_,u}mount-alberpc d
+    {_,u}mount-alberpc
 
 # mirror screen
 super + greater
