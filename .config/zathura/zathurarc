@@ -63,3 +63,4 @@ set font "JetBrains Mono 11"
 set statusbar-home-tilde true
 set window-title-page true
 set render-loading false
+set sandbox none
