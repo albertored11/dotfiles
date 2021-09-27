@@ -1,3 +1,9 @@
+**IMPORTANT:** right now I am using a different branch for my notebook, so these dotfiles are **not** up to date.
+
+The branch I am currently using and maintaining is [book-nord](https://github.com/albertored11/dotfiles/tree/book-nord).
+
+---
+
 # dotfiles-alberbook
 
 ## summary
