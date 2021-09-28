@@ -259,11 +259,11 @@ super + shift + z
 
 # Make split ratios equal
 super + b
-    bspc node @/ --equalize
+    bspc node --equalize
 
 # Make split ratios balanced
 super + shift + b
-	bspc node @/ --balance
+	bspc node --balance
 
 # Flip layout vertically/horizontally
 super + {_,shift + }y
