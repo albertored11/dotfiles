@@ -1,17 +1,17 @@
 #!/usr/bin/env bash
 
-background=282a36
-current_line=44475a
-foreground=f8f8f2
-comment=6272a4
-pink=ff79c6
-purple=bd93f9
-red=ff5555
+background=2E3440
+current_line=4C566A
+foreground=D8DEE9
+comment=4C566A
+pink=B48EAD
+purple=88C0D0
+red=BF616A
 
 [[ -z "$(pgrep -f i3lock)" ]] || exit 1
 
 killall -SIGUSR1 dunst
 
-i3lock -n -e -t -i /home/herbort/Nextcloud/Fondos\ de\ pantalla/Somali\ to\ Mori\ no\ Kamisama/Screenshot_20210101_173118.png -k --insidever-color=$background --insidewrong-color=$background --inside-color=$background --ringver-color=$pink --ringwrong-color=$red --ring-color=$current_line --line-uses-inside --keyhl-color=$purple --bshl-color=$comment --separator-color=$current_line --time-color=$foreground --time-str="%-H:%M" --time-pos="ix:iy-250" --date-color=$foreground --date-str="%a, %d de %b de %Y" --time-font="Inter Medium" --date-font="Inter Medium" --time-size=80 --date-size=20 --date-pos="tx:ty+40" --verif-text="" --wrong-text="" --noinput-text="" --no-modkey-text
+i3lock -n -e -t -i /home/herbort/Nextcloud/Fondos\ de\ pantalla/Misty_Mountain_crop.jpg -k --insidever-color=$background --insidewrong-color=$background --inside-color=$background --ringver-color=$pink --ringwrong-color=$red --ring-color=$current_line --line-uses-inside --keyhl-color=$purple --bshl-color=$comment --separator-color=$current_line --time-color=$foreground --time-str="%-H:%M" --time-pos="ix:iy-250" --date-color=$foreground --date-str="%a, %d de %b de %Y" --time-font="Inter Medium" --date-font="Inter Medium" --time-size=80 --date-size=20 --date-pos="tx:ty+40" --verif-text="" --wrong-text="" --noinput-text="" --no-modkey-text
 
 killall -SIGUSR2 dunst

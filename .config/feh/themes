@@ -1,1 +1,1 @@
-feh -. -B #282a36 --auto-rotate -N -^ "[%u/%l] %n (%wx%h) - feh"
+feh -. -B #2E3440 --auto-rotate -N -^ "[%u/%l] %n (%wx%h) - feh"

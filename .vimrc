@@ -36,7 +36,6 @@ nnoremap <C-t> :NERDTreeToggle<CR>
 let g:ycm_add_preview_to_completeopt = 0
 set completeopt-=preview
 
-" dracula theme
-let g:dracula_colorterm = 0
+" nord theme
 syntax enable
-colorscheme dracula
+colorscheme nord
