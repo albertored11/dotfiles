@@ -1,3 +1,9 @@
+**IMPORTANT:** right now I am using a different branch for my desktop, so these dotfiles are **not** up to date.
+
+The branch I am currently using and maintaining is [pc-nord](https://github.com/albertored11/dotfiles).
+
+---
+
 # dotfiles-alberpc
 
 ## summary
