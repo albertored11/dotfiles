@@ -7,7 +7,7 @@ usage() {
 
 case "$1" in
     fullscr)
-        $HOME/.local/bin/take-screenshot-maim fullscr "$2"
+        flameshot full -c
     ;;
     crop)
         flameshot gui
