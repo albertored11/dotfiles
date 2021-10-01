@@ -33,7 +33,7 @@ window {
 	border:							0px;
 	border-color:					@border;
     border-radius:                  0px;
-	width:							40%;
+	width:							50%;
     location:                       center;
     x-offset:                       0;
     y-offset:                       0;

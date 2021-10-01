@@ -39,6 +39,7 @@ reboot=""
 lock=""
 suspend=""
 logout=""
+hibernate=""
 
 # Confirmation
 confirm_exit() {
@@ -55,7 +56,7 @@ msg() {
 }
 
 # Variable passed to rofi
-options="$shutdown\n$reboot\n$suspend\n$logout"
+options="$shutdown\n$reboot\n$suspend\n$hibernate\n$logout"
 
 chosen="$(echo -e "$options" | $rofi_command -p "Uptime: $uptime" -dmenu -selected-row 2)"
 case $chosen in
@@ -87,7 +88,12 @@ case $chosen in
 		#fi
         $HOME/.local/bin/lock-screen
         ;;
-    $suspend)
+	$suspend)
+		$HOME/.local/bin/umount-alberpc && sleep 1
+		$HOME/.local/bin/lock-screen &
+        systemctl suspend
+		;;
+    $hibernate)
 		#ans=$(confirm_exit &)
 		#if [[ $ans == "yes" || $ans == "YES" || $ans == "y" || $ans == "Y" ]]; then
 		#	mpc -q pause
