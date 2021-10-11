@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+image="$HOME/Nextcloud/Fondos de pantalla/ign_unsplash19.png"
 background=2E3440
 current_line=4C566A
 foreground=D8DEE9
@@ -7,11 +8,41 @@ comment=4C566A
 pink=B48EAD
 purple=88C0D0
 red=BF616A
+font="Inter Medium"
 
 [[ -z "$(pgrep -f ^i3lock)" ]] || exit 1
 
 killall -SIGUSR1 dunst
 
-i3lock -n -e -t -i /home/herbort/Nextcloud/Fondos\ de\ pantalla/ign_unsplash19.png -k --insidever-color=$background --insidewrong-color=$background --inside-color=$background --ringver-color=$pink --ringwrong-color=$red --ring-color=$current_line --line-uses-inside --keyhl-color=$purple --bshl-color=$comment --separator-color=$current_line --time-color=$foreground --time-str="%-H:%M" --time-pos="ix:iy-250" --date-color=$foreground --date-str="%a, %d de %b de %Y" --time-font="Inter Medium" --date-font="Inter Medium" --time-size=80 --date-size=20 --date-pos="tx:ty+40" --verif-text="" --wrong-text="" --noinput-text="" --no-modkey-text
+i3lock \
+    --nofork \
+    --ignore-empty-password \
+    --tiling \
+    --image="$image" \
+    --clock \
+    --insidever-color=$background \
+    --insidewrong-color=$background \
+    --inside-color=$background \
+    --ringver-color=$pink \
+    --ringwrong-color=$red \
+    --ring-color=$current_line \
+    --line-uses-inside \
+    --keyhl-color=$purple \
+    --bshl-color=$comment \
+    --separator-color=$current_line \
+    --time-color=$foreground \
+    --time-str="%-H:%M" \
+    --time-pos="ix:iy-250" \
+    --date-color=$foreground \
+    --date-str="%a, %d de %b de %Y" \
+    --time-font="$font" \
+    --date-font="$font" \
+    --time-size=80 \
+    --date-size=20 \
+    --date-pos="tx:ty+40" \
+    --verif-text="" \
+    --wrong-text="" \
+    --noinput-text="" \
+    --no-modkey-text
 
 killall -SIGUSR2 dunst
