@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 
 launch_bash_script() {
-    pgrep -fx "bash $(which $1) "${@:2}"" > /dev/null || "$@" &
+    args="${@:2}"
+    [[ -n $args ]] && args=" $args"
+
+    pgrep -fx "bash $(which $1)"$args"" > /dev/null || "$@" &
 }
 
 pgrep -x sxhkd > /dev/null || sxhkd &
