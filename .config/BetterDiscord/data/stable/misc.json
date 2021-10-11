@@ -1,0 +1,11 @@
+{
+    "version": "1.2.1",
+    "drawerStates": {
+        "settings": {
+            "customcss": false,
+            "addons": true,
+            "window": true
+        }
+    },
+    "emoteVersion": "v1.2.1"
+}
