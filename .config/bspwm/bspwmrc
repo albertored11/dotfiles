@@ -31,7 +31,7 @@ bspc rule -a Zathura            state=tiled
 launch_bash_script bspc-polybar-color
 launch_bash_script tabbed-refresh
 launch_bash_script battery-notif
-launch_bash_script check-idle
+launch_bash_script autolock
 
 wmname LG3D &
 xsetroot -cursor_name left_ptr &
