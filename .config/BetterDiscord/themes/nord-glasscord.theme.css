@@ -71,7 +71,7 @@
 	/* native (default), windows, osx, linux (framed) */
 	--glasscord-titlebar: windows;
 
-	--font: 'Baloo2';
+	--font: 'Inter';
 
 	--accentcolor: 94,129,172;		/* blurple - default: 114,137,218 */
 	--linkcolor: 136,192,208;		/* link - default: 0,176,244 */
@@ -80,34 +80,34 @@
   	--server-icon-spacing: 8px; /* Spacing between server icons. Negative values are allowed | DEFAULT: 8px */
   	--server-container-padding: 10px; /* Spacing to the left and right sides of server icons | DEFAULT: 10px */
 
-	--unread-badge: #eceff499 !important;
-	--unread-background: #eceff402 !important;
+	--unread-badge: #eceff4 !important;
+	--unread-background: #eceff4 !important;
 	--selected-badge: #5e81ac !important;
-	--selected-background: #5e81ac1a !important;
-	--hovered: #81a1c109 !important;
-	--active: #81a1c13d !important;
+	--selected-background: #5e81ac !important;
+	--hovered: #81a1c1 !important;
+	--active: #81a1c1 !important;
 }
 
 .theme-dark{
-	--background-primary: transparent;
-	--background-primary-alt: #2e3440f0;
-	--background-secondary: #2e344050;
-	--background-secondary-chat: #2e3440a0;
-	--background-secondary-alt: #2e344000;
-	--background-tertiary: #2e344070;
-	--background-logo: #2e3440a0;
-	--deprecated-card-bg: #2e34404c;
-	--deprecated-store-bg: #2e344000;
-	--background-attachments: #2e344040;
-	--background-search-bar: #2e3440a0;
-	--background-switcher: #2e3440ff;
-	--background-chatbox: #2e344040;
+	--background-primary: #2e3440;
+	--background-primary-alt: #2e3440;
+	--background-secondary: #2e3440;
+	--background-secondary-chat: #2e3440;
+	--background-secondary-alt: #2e3440;
+	--background-tertiary: #2e3440;
+	--background-logo: #2e3440;
+	--deprecated-card-bg: #2e3440;
+	--deprecated-store-bg: #2e3440;
+	--background-attachments: #2e3440;
+	--background-search-bar: #2e3440;
+	--background-switcher: #2e3440;
+	--background-chatbox: #2e3440;
 	--background-lights-out: #000;
-	--background-pinned: #2e3440ff;
-	--background-profile-expand: #2e3440ff;
+	--background-pinned: #2e3440;
+	--background-profile-expand: #2e3440;
 	--background-emoji: rgb(46, 52, 64);
 	--text-lights-out: #eceff4;
-	--background-titlebar: #2e344050;
+	--background-titlebar: #2e3440;
 }
 
 .theme-dark .scrollerThemed-2oenus.themedWithTrack-q8E3vB .scroller-2FKFPG::-webkit-scrollbar-track-piece {
