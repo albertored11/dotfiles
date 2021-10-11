@@ -4,7 +4,8 @@ launch_bash_script() {
     args="${@:2}"
     [[ -n $args ]] && args=" $args"
 
-    pgrep -fxa "bash $(which $1)$args" > /dev/null || "$@" &
+    pkill -fx "bash $(which $1)$args"
+    "$@" &
 }
 
 pgrep -x sxhkd > /dev/null || sxhkd &
