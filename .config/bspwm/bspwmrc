@@ -1,4 +1,4 @@
-#! /bin/sh
+#!/usr/bin/env bash
 
 launch_bash_script() {
     pgrep -fx "bash $(which $1) "${@:2}"" > /dev/null || "$@" &
