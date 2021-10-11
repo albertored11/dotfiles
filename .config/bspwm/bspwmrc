@@ -1,7 +1,7 @@
 #! /bin/sh
 
 launch_bash_script() {
-    pgrep -fx "bash $(which $1)" > /dev/null || $1 &
+    pgrep -fx "bash $(which $1) "${@:2}"" > /dev/null || "$@" &
 }
 
 pgrep -x sxhkd > /dev/null || sxhkd &
@@ -29,7 +29,7 @@ bspc rule -a Blueman-manager    state=floating
 bspc rule -a Zathura            state=tiled
 
 launch_bash_script bspc-polybar-color
-launch_bash_script tabbed-refresh
+launch_bash_script tabc refreshd
 launch_bash_script battery-notif
 launch_bash_script autolock
 
