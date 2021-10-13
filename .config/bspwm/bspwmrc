@@ -39,7 +39,6 @@ bspc rule -a Zathura            state=tiled
 launch_bash_script tabc refreshd
 
 launch_xob volume
-launch_xob brightness
 
 wmname LG3D &
 xsetroot -cursor_name left_ptr &
