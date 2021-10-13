@@ -25,6 +25,7 @@ case $chosen in
 	;;
     $suspend)
         $HOME/.local/bin/lock-screen &
+        sleep 0.1
         systemctl suspend
     ;;
     $logout)
