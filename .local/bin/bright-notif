@@ -27,6 +27,6 @@ case "$1" in
     ;;
 esac
 
-desc="$(brightnessctl i -m | awk -F "," '{ print $4 }')"
+bright="$(awk -F "," '{ print substr($4, 1, length($4) - 1) }' <(brightnessctl i -m))"
 
-dunstify -a "Brillo" "$desc"
+echo "$bright" >> /tmp/xobbrightness

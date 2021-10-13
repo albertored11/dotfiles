@@ -27,11 +27,13 @@ state="$(awk -F"[][]" '/Left:/ { print $4 }' <(amixer sget Master))"
 
 case "$state" in
     off)
-        desc="Silenciado"
+        state="!"
     ;;
     on)
-        desc="$(awk -F"[][]" '/Left:/ { print $2 }' <(amixer sget Master))"
+        state=""
     ;;
 esac
 
-dunstify -a "Volumen" "$desc"
+vol="$(awk -F"[][]" '/Left:/ { print substr($2, 1, length($2) - 1) }' <(amixer sget Master))"
+
+echo "$vol$state" >> /tmp/xobvolume
