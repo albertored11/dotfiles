@@ -9,8 +9,12 @@ launch_bash_script() {
 }
 
 launch_xob() {
-    mkfifo "$1"
-    tail -f "/tmp/xob$1" | xob -s "$1" &
+    fifo="/tmp/xob$1"
+
+    pkill -fx "xob -s $1"
+    rm -f "$fifo"
+    mkfifo "$fifo"
+    tail -f "$fifo" | xob -s "$1" &
 }
 
 pgrep -x sxhkd > /dev/null || sxhkd &
