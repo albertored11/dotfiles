@@ -8,6 +8,11 @@ launch_bash_script() {
     "$@" &
 }
 
+launch_xob() {
+    mkfifo "$1"
+    tail -f "/tmp/xob$1" | xob -s "$1" &
+}
+
 pgrep -x sxhkd > /dev/null || sxhkd &
 
 bspc monitor DP-1 -d 1 2 3 4 5
@@ -32,6 +37,9 @@ bspc rule -a Blueman-manager    state=floating
 bspc rule -a Zathura            state=tiled
 
 launch_bash_script tabc refreshd
+
+launch_xob volume
+launch_xob brightness
 
 wmname LG3D &
 xsetroot -cursor_name left_ptr &
