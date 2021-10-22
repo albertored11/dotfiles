@@ -9,7 +9,7 @@ usage() {
 
 diff=$2
 
-[[ -z $diff ]] && diff=5
+[[ -z $diff ]] && diff=2
 
 case "$1" in
     up)
