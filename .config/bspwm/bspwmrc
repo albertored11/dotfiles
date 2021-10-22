@@ -11,10 +11,10 @@ launch_bash_script() {
 launch_xob() {
     fifo="/tmp/xob$1"
 
-    pkill -fx "xob -s $1"
+    pkill -fx "xob -t 2000 -s $1"
     rm -f "$fifo"
     mkfifo "$fifo"
-    tail -f "$fifo" | xob -s "$1" &
+    tail -f "$fifo" | xob -t 2000 -s "$1" &
 }
 
 pgrep -x sxhkd > /dev/null || sxhkd &
