@@ -264,7 +264,27 @@ super + z
 # toggle autoattach in tabbed container
 super + shift + z
     tabc autoattach $(bspc query -N -n)
-    
+
+#
+# dunst
+#
+
+# close notification
+ctrl + space
+    dunstctl close
+
+# close all notifications
+ctrl + shift + space
+    dunstctl close-all
+
+# show notification history
+super + n
+    dunstctl history-pop
+
+# perform the default action
+super + shift + n
+    dunstctl action
+
 #
 # others
 #
