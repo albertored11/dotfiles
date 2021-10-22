@@ -34,9 +34,15 @@
     },
     "latex-workshop.latex.recipes": [
         {
-            "name": "fast",
+            "name": "make fast",
             "tools": [
-                "fast"
+                "make fast"
+            ]
+        },
+        {
+            "name": "make",
+            "tools": [
+                "make"
             ]
         },
         {
@@ -89,11 +95,17 @@
     ],
     "latex-workshop.latex.tools": [
         {
-            "name": "fast",
+            "name": "make fast",
             "command": "make",
             "args": [
                 "fast"
             ],
+            "env": {}
+        },
+        {
+            "name": "make",
+            "command": "make",
+            "args": [],
             "env": {}
         },
         {
@@ -187,5 +199,18 @@
             "env": {}
         }
     ],
-    "latex-workshop.view.pdf.viewer": "tab"
+    "python.defaultInterpreterPath": "/usr/bin/python3",
+    "latex-workshop.view.pdf.viewer": "external",
+    "latex-workshop.view.pdf.external.viewer.command": "zathura",
+    "latex-workshop.view.pdf.external.viewer.args": [
+        "--synctex-editor-command",
+        "code --reuse-window -g \"%{input}:%{line}\"",
+        "%PDF%"
+    ],
+    "latex-workshop.view.pdf.external.synctex.command": "zathura",
+    "latex-workshop.view.pdf.external.synctex.args": [
+        "--synctex-forward=%LINE%:0:%TEX%",
+        "%PDF%"
+    ],
+    "cSpell.language": "en,es-ES"
 }
