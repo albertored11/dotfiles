@@ -27,6 +27,7 @@ case $chosen in
     $suspend)
         $HOME/.local/bin/umount-alberpc && sleep 1
 		$HOME/.local/bin/lock-screen &
+        sleep 0.2
         systemctl suspend
     ;;
 	$hibernate)
