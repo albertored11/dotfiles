@@ -213,5 +213,15 @@
         "--synctex-forward=%LINE%:0:%TEX%",
         "%PDF%"
     ],
-    "cSpell.language": "en,es-ES"
+    "cSpell.language": "en,es-ES",
+    "cSpell.userWords": [
+        "biomédica",
+        "ideación",
+        "indexación",
+        "neurocognitiva",
+        "preprocesamiento",
+        "subsecciones",
+        "transcultural",
+        "verificables"
+    ]
 }
