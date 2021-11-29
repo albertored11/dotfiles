@@ -74,8 +74,14 @@ super + l
 {_,shift + ,super + ,ctrl +}Print
     take-screenshot {fullscr,crop,activewin,mon} "$HOME/Nextcloud/Capturas de pantalla/alberpc"
 
+# suspend
+XF86Sleep
+    $HOME/.local/bin/lock-screen & \
+    sleep 0.2; \
+    systemctl suspend
+
 # powermenu
-{ctrl + alt + Delete,XF86PowerOff,XF86Sleep}
+{ctrl + alt + Delete,XF86PowerOff}
     $HOME/.config/rofi/powermenu/powermenu.sh
 
 # show bluetooth devices
