@@ -17,17 +17,17 @@
     #
     # If this option is set to mouse or keyboard, the monitor option
     # will be ignored.
-    follow = keyboard
+    follow = none
 
     ### Geometry ###
 
     # dynamic width from 0 to 300
     # width = (0, 300)
     # constant width of 300
-    width = 480
+    width = 384
 
     # The maximum height of a single notification, excluding the frame.
-    height = 480
+    height = 384
 
     # Position the notification in the bottom right corner
     origin = bottom-right
