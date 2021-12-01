@@ -13,6 +13,7 @@ application/xhtml+xml=chromium.desktop;
 application/x-virtualbox-vmdk=visual-studio-code.desktop;
 application/x-shellscript=visual-studio-code.desktop;
 image/gif=mpv.desktop;
+application/octet-stream=visual-studio-code.desktop;
 
 [Default Applications]
 application/x-yaml=visual-studio-code.desktop;
@@ -29,3 +30,5 @@ x-scheme-handler/https=google-chrome.desktop
 x-scheme-handler/about=google-chrome.desktop
 x-scheme-handler/unknown=google-chrome.desktop
 x-scheme-handler/mailto=google-chrome.desktop
+x-scheme-handler/webcal=google-chrome.desktop
+x-scheme-handler/jetbrains-gateway=jetbrains-gateway.desktop
