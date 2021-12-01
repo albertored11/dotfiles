@@ -10,7 +10,7 @@
     "redhat.telemetry.enabled": true,
     "liveshare.authenticationProvider": "GitHub",
     "workbench.colorTheme": "Nord",
-    "editor.fontFamily": "monospace",
+    "editor.fontFamily": "JetBrains Mono, monospace",
     "C_Cpp.intelliSenseEngine": "Tag Parser",
     "python.linting.pylintEnabled": true,
     "python.linting.enabled": true,
