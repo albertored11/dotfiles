@@ -27,7 +27,7 @@
     width = 384
 
     # The maximum height of a single notification, excluding the frame.
-    height = 384
+    height = 258
 
     # Position the notification in the bottom right corner
     origin = bottom-right
@@ -39,7 +39,7 @@
     scale = 0
 
     # Maximum number of notification (0 means no limit)
-    notification_limit = 0
+    notification_limit = 4
 
     ### Progress bar ###
 
@@ -193,10 +193,10 @@
     min_icon_size = 0
 
     # Scale larger icons down to this size, set to 0 to disable
-    max_icon_size = 64
+    max_icon_size = 0
 
     # Paths to default icons.
-    icon_path = /usr/share/icons/Adwaita/64x64/status/:/usr/share/icons/Adwaita/64x64/devices/
+    icon_path = /usr/share/icons/Papirus/32x32/status/:/usr/share/icons/Papirus/32x32/devices/
 
     ### History ###
 
