@@ -24,7 +24,7 @@ pkgbase2pkgname() {
     awk -v p="$1" '$0 ~ p { print $1 }' "$pkgbase_cachefile"
 }
 
-removed="$(comm -23 <(basename -a $(find $cachedir -mindepth 1 -maxdepth 1 -type d)| sort) <(for pkg in $(pacman -Qqm); do pkgbase_cache $pkg; done | sort) | xargs -r printf "$cachedir/%s\n")"
+removed="$(comm -23 <(basename -a $(find $cachedir -mindepth 1 -maxdepth 1 -type d) | sort) <(for pkg in $(pacman -Qqm); do pkgbase_cache $pkg; done | sort) | xargs -r printf "$cachedir/%s\n")"
 
 # Remove paru cache for foreign packages that are not installed anymore
 rm -rf $removed
