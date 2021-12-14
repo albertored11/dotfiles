@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-# TODO: test
-
 cachedir="$HOME/.cache/paru/clone"
 parucache_cachedir="$HOME/.cache/parucache"
 pkgbase_cachefile="$parucache_cachedir/pkgbase_cache.txt"
