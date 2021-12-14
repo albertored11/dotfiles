@@ -223,5 +223,6 @@
         "subsecciones",
         "transcultural",
         "verificables"
-    ]
+    ],
+    "update.mode": "none"
 }
