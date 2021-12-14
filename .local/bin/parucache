@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
-# Assuming yay is run by user with UID 1000
-admin="$(id -nu 1000)"
-cachedir="/home/$admin/.cache/yay"
-yaycache_cachedir="/home/$admin/.cache/yaycache"
-pkgbase_cachefile="$yaycache_cachedir/pkgbase_cache.txt"
+# TODO: test
 
-mkdir -p "$yaycache_cachedir"
+cachedir="$HOME/.cache/paru/clone"
+parucache_cachedir="$HOME/.cache/parucache"
+pkgbase_cachefile="$parucache_cachedir/pkgbase_cache.txt"
+
+mkdir -p "$parucache_cachedir"
 
 pkgbase_cache() {
     touch "$pkgbase_cachefile"
@@ -26,9 +26,9 @@ pkgbase2pkgname() {
     awk -v p="$1" '$0 ~ p { print $1 }' "$pkgbase_cachefile"
 }
 
-removed="$(comm -23 <(basename -a $(find $cachedir -mindepth 1 -maxdepth 1 -type d) | sort) <(for pkg in $(pacman -Qqm); do pkgbase_cache $pkg; done | sort) | xargs -r printf "$cachedir/%s\n")"
+removed="$(comm -23 <(basename -a $(find $cachedir -mindepth 1 -maxdepth 1 -type d)| sort) <(for pkg in $(pacman -Qqm); do pkgbase_cache $pkg; done | sort) | xargs -r printf "$cachedir/%s\n")"
 
-# Remove yay cache for foreign packages that are not installed anymore
+# Remove paru cache for foreign packages that are not installed anymore
 rm -rf $removed
 
 pkgcache="$(find $cachedir -mindepth 1 -maxdepth 1 -type d | xargs -r printf "-c %s\n")"
@@ -45,7 +45,7 @@ for pkgdir in "$cachedir"/*/; do
 
         pkgver="$(pacman -Q $pkg | cut -d ' ' -f2 | cut -d '-' -f1 | cut -d ':' -f2)"
 
-        rm -f $(git ls-files --others | grep -v -e '^.*\.pkg\.tar.*$' -e '^.*/$' -e "^.*$pkgver.*$" | xargs -r printf "$pkgdir/%s\n")
+        rm -f $(git ls-files --others | grep -v -e '^.*\.pkg\.tar.*$' -e '^.*/$' -e "^.*$pkgver.*$" | xargs -r printf "$pkgdir%s\n")
     fi
 
     rm -rf "$pkgdir"/src/
