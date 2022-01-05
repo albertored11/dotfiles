@@ -45,8 +45,6 @@ super + shift + Escape
 # volume up/down (2%)
 XF86Audio{RaiseVolume,LowerVolume}
     volume-notif {up,down}
-    #amixer -q sset Master unmute && amixer -q sset Master 5%{+,-}
-    #pactl set-sink-mute @DEFAULT_SINK@ false; pactl set-sink-volume @DEFAULT_SINK@ {+,-}5%
 
 # volume up/down (1%)
 shift + XF86Audio{RaiseVolume,LowerVolume}
@@ -55,8 +53,6 @@ shift + XF86Audio{RaiseVolume,LowerVolume}
 # mute/unmute volume
 XF86AudioMute
     volume-notif toggle
-    #amixer -q sset Master toggle
-    #pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 # play/pause
 XF86AudioPlay
