@@ -62,6 +62,9 @@ XF86AudioPlay
 super + {Home,End}
     playerctl {previous,next}
 
+XF86Audio{Prev,Next}
+    playerctl {previous,next}
+
 # lock screen
 super + l
     lock-screen
