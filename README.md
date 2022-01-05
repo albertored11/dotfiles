@@ -15,7 +15,7 @@ with 2x 21.5" 1920x1080 @ 60 Hz HP EliteDisplay E223 monitors.
 
 ## screenshot
 
-*Coming soon...*
+![Screenshot](Nextcloud/Capturas%20de%20pantalla/alberpc/screenshot_20220105_224709.png)
 
 ## pkg choices
 
@@ -29,9 +29,9 @@ with 2x 21.5" 1920x1080 @ 60 Hz HP EliteDisplay E223 monitors.
 | **monospaced font** | ttf-jetbrains-mono + nerd-fonts-jetbrains-mono |
 | **extra fonts** | noto-fonts (+ noto-fonts-cjk + noto-fonts-emoji) |
 | **text editor** | vim + visual-studio-code-bin |
-| **screen locker** | i3lock |
-| **gtk theme** | ant-dracula-gtk-theme |
-| **qt theme** | ant-dracula-kvantum-theme-git |
+| **screen locker** | i3lock-color |
+| **gtk theme** | nordic-darker-theme-git |
+| **qt theme** | kvantum-theme-nordic-git |
 | **icon theme** | papirus-icon-theme papirus-folders |
 | **cursor** | xcursor-breeze |
 | **program launcher** | rofi |
@@ -40,5 +40,5 @@ with 2x 21.5" 1920x1080 @ 60 Hz HP EliteDisplay E223 monitors.
 | **shell** | fish |
 | **file manager** | pcmanfm-qt (+ qt5-translations) + ranger |
 | **terminal** | kitty |
-| **screenshot utility** | maim |
+| **screenshot utility** | flameshot + maim |
 | **image viewer** | feh |
