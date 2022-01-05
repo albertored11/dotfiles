@@ -224,5 +224,6 @@
         "transcultural",
         "verificables"
     ],
-    "update.mode": "none"
+    "update.mode": "none",
+    "files.autoSave": "afterDelay"
 }
