@@ -17,7 +17,8 @@
     "workbench.startupEditor": "newUntitledFile",
     "editor.minimap.enabled": false,
     "files.associations": {
-        "*.pl": "prolog"
+        "*.pl": "prolog",
+        "*.hcl": "terraform"
     },
     "workbench.activityBar.visible": true,
     "python.pythonPath": "/usr/bin/python3",
@@ -223,5 +224,6 @@
         "transcultural",
         "verificables"
     ],
-    "update.mode": "none"
+    "update.mode": "none",
+    "files.autoSave": "afterDelay"
 }
