@@ -1,4 +1,3 @@
-# Defined in - @ line 1
-function el --wraps='exa -l' --description 'alias el=exa -l'
-  exa -l $argv;
+function el --wraps='exa -l --git --group-directories-first --icons' --description 'alias el=exa -l --git --group-directories-first --icons'
+  exa -l --git --group-directories-first --icons $argv; 
 end
