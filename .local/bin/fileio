@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+url="https://file.io"
+
+if [[ $# -eq 0 ]] || [[ "$1" == "-" ]]; then
+    curl -sd "text=$(</dev/stdin)" "$url" | jq -Mr '."link"'
+else
+    while [[ $# -gt 0 ]]; do
+        curl -sF "file=@$1" "$url" | jq -Mr '."link"'
+        shift
+    done
+fi
