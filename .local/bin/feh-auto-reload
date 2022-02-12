@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+
+# shellcheck disable=SC2086,SC2048
+trim_all() {
+    set -f
+    set -- $*
+    printf '%s\n' "$*"
+    set +f
+}
+
+split() {
+    IFS=$'\n' read -d "" -ra arr <<< "${1//$2/$'\n'}"
+    printf '%s\n' "${arr[$3]}"
+}
+
+trim_quotes() {
+    : "${1//\'}"
+    printf '%s\n' "${_//\"}"
+}
+
+get_class() {
+    id=$1
+
+    if [[ -z $id ]]; then
+        printf "error: id of window not specified\n" >&2
+        exit 1
+    fi
+
+    if ! class="$(xprop -id "$id" 8s '\t$0' WM_CLASS 2> /dev/null)"; then
+        printf "error: invalid window id\n" >&2
+        exit 1
+    fi
+
+    class="$(trim_all "$class")"
+    class="$(split "$class" " " 1)"
+    trim_quotes "$class"
+}
+
+while IFS= read -r id; do
+    id="$(split "$id" " " 4)"
+    class="$(get_class "$id" 2> /dev/null)" || continue
+
+    if [[ "$class" == "feh" ]]; then
+        bspc node -f "$id"
+        xdotool key r
+    fi
+done < <(bspc subscribe node_add)
