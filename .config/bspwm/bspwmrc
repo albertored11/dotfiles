@@ -40,6 +40,7 @@ bspc rule -a Pavucontrol            state=floating
 bspc rule -a Zathura                state=tiled
 
 launch_bash_script tabc refreshd
+launch_bash_script feh-auto-reload
 
 launch_xob volume
 
