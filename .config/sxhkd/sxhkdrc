@@ -76,7 +76,7 @@ super + l
 # suspend
 XF86Sleep
     $HOME/.local/bin/lock-screen & \
-    sleep 0.3; \
+    sleep 0.4; \
     systemctl suspend
 
 # powermenu
