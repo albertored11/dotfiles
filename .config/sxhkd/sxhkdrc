@@ -15,11 +15,12 @@ super + e
     pcmanfm-qt
 
 # spotify
-super + shift + s
+XF86Tools
     spotify
 
 # discord
 super + shift + d
+    betterdiscordctl install; \
     discord
 
 # code
@@ -59,9 +60,6 @@ XF86AudioPlay
     playerctl play-pause
 
 # prev/next song
-super + {Home,End}
-    playerctl {previous,next}
-
 XF86Audio{Prev,Next}
     playerctl {previous,next}
 
@@ -74,7 +72,7 @@ super + l
     take-screenshot {fullscr,crop,activewin,mon} "$HOME/Nextcloud/Capturas de pantalla/alberpc"
 
 # suspend
-XF86Sleep
+XF86HomePage
     $HOME/.local/bin/lock-screen & \
     sleep 0.4; \
     systemctl suspend
@@ -106,6 +104,10 @@ super + shift + p
 # clipboard selector
 super + {_,alt + }p
     clipster -s{_,p}
+
+# run xmodmap
+super + shift + m
+    xmodmap $HOME/.Xmodmap
 
 #
 # bspwm hotkeys
