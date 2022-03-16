@@ -1,3 +1,5 @@
 keycode  10 = 1 exclam 1 exclam Ccedilla exclamdown Ccedilla exclamdown 1 exclam Ccedilla exclamdown
 keycode  49 = masculine ordfeminine masculine ordfeminine ccedilla ccedilla ccedilla
 keycode  51 = backslash bar backslash bar braceright dead_breve braceright
+keycode 107 = Insert NoSymbol Insert NoSymbol Insert
+keycode 118 = Print Sys_Req Print Sys_Req Print Sys_Req
