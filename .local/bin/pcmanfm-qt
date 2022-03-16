@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 
-LC_COLLATE=C /usr/bin/pcmanfm-qt "$@"
+export LC_COLLATE=C
+exec /usr/bin/pcmanfm-qt "$@"
