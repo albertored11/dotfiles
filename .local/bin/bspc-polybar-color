@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-bg_solid_bar='/home/herbort/Nextcloud/Fondos de pantalla/nord_shibuya_polybar_36_solid.png'
-bg_transparent_bar='/home/herbort/Nextcloud/Fondos de pantalla/nord_shibuya_polybar_36.png'
+bg_solid_bar='/home/herbort/Nextcloud/Fondos de pantalla/nord_shibuya_polybar_36_darker_solid.png'
+bg_transparent_bar='/home/herbort/Nextcloud/Fondos de pantalla/nord_shibuya_polybar_36_darker.png'
 
 bspc subscribe node_add node_remove node_transfer node_flag node_state desktop_focus desktop_layout | while read; do
     window_count=$(bspc query -N -n .!hidden.tiled.local.window | wc -l)
