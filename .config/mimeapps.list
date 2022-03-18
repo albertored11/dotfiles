@@ -14,6 +14,7 @@ application/x-virtualbox-vmdk=visual-studio-code.desktop;
 application/x-shellscript=visual-studio-code.desktop;
 image/gif=mpv.desktop;
 application/octet-stream=visual-studio-code.desktop;
+text/csv=visual-studio-code.desktop;
 
 [Default Applications]
 application/x-yaml=visual-studio-code.desktop;
