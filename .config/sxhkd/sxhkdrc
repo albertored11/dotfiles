@@ -20,6 +20,7 @@ super + shift + s
 
 # discord
 super + shift + d
+    betterdiscordctl install; \
     discord
 
 # code
@@ -123,6 +124,10 @@ super + shift + p
 # clipboard selector
 super + {_,alt + }p
     clipster -s{_,p}
+
+# run xmodmap
+super + shift + m
+    xmodmap $HOME/.Xmodmap
 
 #
 # bspwm hotkeys
