@@ -3,7 +3,7 @@
 #
 
 # terminal emulator
-super + t
+super + Return
 	kitty
 
 # web browser
