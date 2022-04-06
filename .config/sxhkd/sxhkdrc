@@ -3,7 +3,7 @@
 #
 
 # terminal emulator
-super + t
+super + Return
 	kitty
 
 # web browser
@@ -131,7 +131,7 @@ super + m
 
 # swap the current node and the biggest window in the current desktop
 super + g
-	bspc node -s biggest.window.local.!hidden.window
+	bspc node -s biggest.local.!hidden.window
 
 #
 # state/flags
