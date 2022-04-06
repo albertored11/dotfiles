@@ -1,5 +1,9 @@
 # dotfiles-alberpc
 
+**New:** Check out my [sysfiles](https://github.com/albertored11/sysfiles-alberpc) (config files at system level), too!
+
+---
+
 ## summary
 
 These dotfiles belong to my personal desktop, which features an Arch Linux installation with [bspwm](https://github.com/baskerville/bspwm) as WM and the [Nord theme](https://nordtheme.com/) as main color scheme.
