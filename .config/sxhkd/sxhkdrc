@@ -76,6 +76,10 @@ shift + XF86MonBrightnessDown
 super + l
     lock-screen
 
+# turn off & lock screen
+super + alt + l
+    lock-screen & sleep 0.5; xset dpms force off
+
 # take screenshot (full screen/crop/active window)
 {_,shift + ,super + }Print
     take-screenshot {fullscr,crop,activewin} "$HOME/Nextcloud/Capturas de pantalla/alberbook"
