@@ -1,2 +1,2 @@
 #!/bin/sh
-feh --no-fehbg --bg-tile --image-bg '#2E3440' '/home/herbort/Nextcloud/Fondos de pantalla/Mountain_Jaws_crop_resize_dual.png' 
+feh --no-fehbg --bg-tile --image-bg '#242933' '/home/herbort/Nextcloud/Fondos de pantalla/Mountain_Jaws_crop_resize_dual_darker.png'
