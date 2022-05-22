@@ -2,7 +2,7 @@
 application/x-yaml=visual-studio-code.desktop;
 audio/mp4=mpv.desktop;
 text/x-c++src=visual-studio-code.desktop;
-text/x-java=visual-studio-code.desktop;code-oss.desktop;
+text/x-java=jetbrains-idea.desktop;visual-studio-code.desktop;code-oss.desktop;
 x-scheme-handler/tg=userapp-Telegram Desktop-N6NZY0.desktop;
 application/pdf=org.pwmt.zathura.desktop;
 text/css=visual-studio-code.desktop;
