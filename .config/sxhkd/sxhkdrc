@@ -95,7 +95,7 @@ super + shift + l
 
 # ghci
 XF86Calculator
-    kitty ghci
+    kitty python
 
 # restart polybar
 super + shift + p
