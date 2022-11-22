@@ -9,7 +9,7 @@ launch_bash_script() {
 }
 
 launch_xob() {
-    fifo="/tmp/xob$1"
+    fifo="/tmp/xob-$USER-$1"
 
     pkill -fx "xob -t 2000 -s $1"
     rm -f "$fifo"
@@ -49,9 +49,10 @@ xsetroot -cursor_name left_ptr &
 xcape -e "Super_L=Super_L|Escape" &
 $HOME/.fehbg &
 $HOME/.config/polybar/launch-bspwm.sh &
-picom --experimental-backends &
+picom &
 unclutter &
 dunst &
 nextcloud &
 clipster -d &
 $HOME/.config/redshift/launch.sh &
+mount-alberpi
