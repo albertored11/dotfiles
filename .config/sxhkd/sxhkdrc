@@ -15,7 +15,7 @@ super + e
     pcmanfm-qt
 
 # spotify
-XF86Tools
+super + shift + s
     spotify
 
 # discord
@@ -69,10 +69,10 @@ super + l
 
 # take screenshot (full screen/crop/active window/current monitor)
 {_,shift + ,super + ,ctrl +}Print
-    take-screenshot {fullscr,crop,activewin,mon} "$HOME/Nextcloud/Capturas de pantalla/alberpc"
+    take-screenshot {crop,fullscr,activewin,mon} "$HOME/Nextcloud/Capturas de pantalla/alberpc"
 
 # suspend
-XF86HomePage
+XF86MonBrightnessDown
     $HOME/.local/bin/lock-screen & \
     sleep 0.4; \
     systemctl suspend
@@ -91,10 +91,10 @@ super + shift + a
 
 # lyrics-in-terminal
 super + shift + l
-    kitty lyrics
+    kitty sptlrx
 
-# ghci
-XF86Calculator
+# python
+XF86MonBrightnessUp
     kitty python
 
 # restart polybar
@@ -102,12 +102,16 @@ super + shift + p
     $HOME/.config/polybar/launch-bspwm.sh
 
 # clipboard selector
-super + {_,alt + }p
+super + {_,alt + }v
     clipster -s{_,p}
 
 # run xmodmap
 super + shift + m
     xmodmap $HOME/.Xmodmap
+
+# (un)mount alberpi
+super + {_,shift + }u
+    {_,u}mount-alberpi d
 
 #
 # bspwm hotkeys
@@ -200,7 +204,7 @@ super + {_,shift + }{1-9,0}
 	bspc {desktop -f,node -d} {1-9,10}
 
 # send to the next monitor
-super + less
+super + masculine
     bspc node -f -m next --follow
 
 #
