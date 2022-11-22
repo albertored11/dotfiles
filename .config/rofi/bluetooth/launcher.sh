@@ -16,7 +16,7 @@ list_devices() {
 
         dev="$(echo $line | cut -d ' ' -f3-)"
         devs+=("$prefix$dev")
-    done <<<$(bluetoothctl -- paired-devices)
+    done <<<$(bluetoothctl -- devices Paired)
 
     selected=$( ( for dev in "${devs[@]}"; do echo $dev; done; echo "Power off Bluetooth" ) | rofi -theme ~/.config/rofi/bluetooth/blurry_custom.rasi -dmenu -format d)
 
