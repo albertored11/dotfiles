@@ -36,4 +36,4 @@ esac
 
 vol="$(awk -F"[][]" '/Left:/ { print substr($2, 1, length($2) - 1) }' <(amixer sget Master))"
 
-echo "$vol$state" >> /tmp/xobvolume
+echo "$vol$state" >> /tmp/xob-$USER-volume
