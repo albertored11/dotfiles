@@ -43,6 +43,7 @@ launch_bash_script tabc refreshd
 launch_bash_script feh-auto-reload
 
 launch_xob volume
+launch_xob brightness
 
 wmname LG3D &
 xsetroot -cursor_name left_ptr &
