@@ -15,7 +15,7 @@ super + e
     pcmanfm-qt
 
 # spotify
-super + shift + s
+super + s
     spotify
 
 # discord
@@ -63,19 +63,25 @@ XF86AudioPlay
 XF86Audio{Prev,Next}
     playerctl {previous,next}
 
+# brightness up/down
+XF86MonBrightness{Up,Down}
+    bright-notif {up,down} 5
+
+# custom brightness
+ctrl + XF86MonBrightness{Up,Down}
+    bright-notif set {100,30}
+
 # lock screen
-super + l
-    lock-screen
+super + {_,alt + }l
+    lock-screen{_, --off}
 
 # take screenshot (full screen/crop/active window/current monitor)
-{_,shift + ,super + ,ctrl +}Print
+{_,shift + ,super + ,ctrl + }Print
     take-screenshot {crop,fullscr,activewin,mon} "$HOME/Nextcloud/Capturas de pantalla/alberpc"
 
 # suspend
-XF86MonBrightnessDown
-    $HOME/.local/bin/lock-screen & \
-    sleep 0.4; \
-    systemctl suspend
+super + shift + s
+    lock-screen --off --suspend
 
 # powermenu
 {ctrl + alt + Delete,XF86PowerOff}
@@ -94,7 +100,7 @@ super + shift + l
     kitty sptlrx
 
 # python
-XF86MonBrightnessUp
+super + shift + y
     kitty python
 
 # restart polybar
