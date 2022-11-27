@@ -24,9 +24,7 @@ case $chosen in
 		systemctl reboot
 	;;
     $suspend)
-        $HOME/.local/bin/lock-screen &
-        sleep 0.4
-        systemctl suspend
+        lock-screen --off --suspend
     ;;
     $logout)
         bspc quit
