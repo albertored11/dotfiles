@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+
+progname="$(basename "$0")"
+
+usage() {
+    echo "usage: $progname <up/down/set/off> [brightness %]" >&2
+    exit 1
+}
+
+[[ "$#" -eq 1 || "$#" -eq 2 ]] || usage
+
+n_px=$(pgrep -f "^bash $(which $progname)" | wc -l)
+[[ $n_px -gt 2 ]] && exit 1
+
+displays=$(ddcutil detect --terse | grep -F "I2C bus:" | awk -F '-' '{print $2}')
+n_displays=$(echo $displays | wc -w)
+
+case "$1" in
+    up)
+        b="+\ $2"
+    ;;
+    down)
+        b="-\ $2"
+    ;;
+    set)
+        b="$2"
+    ;;
+    off)
+        echo $displays | xargs -n1 -P$n_displays sh -c 'ddcutil setvcp d6 5 --bus $1' sh
+        exit 0
+    ;;
+    *)
+        usage
+    ;;
+esac
+
+conf=$(for m in $displays; do echo $m $b; done)
+
+echo $conf | xargs -n2 -P$n_displays sh -c 'ddcutil setvcp 10 $2 --bus $1' sh
+
+bright="$(cut -d ' ' -f4 <(ddcutil getvcp 10 --bus $(head -n1 <<< $displays) --terse))"
+
+echo "$bright" >> /tmp/xob-$USER-brightness
