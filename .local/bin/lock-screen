@@ -104,7 +104,7 @@ main() {
         --no-modkey-text &
 
     if [[ "$susp" ]]; then
-        sleep 0.5
+        sleep 0.6
         systemctl suspend
     fi
 
@@ -113,6 +113,8 @@ main() {
     killall -SIGUSR2 dunst
 
     [[ "$off" ]] && xmodmap $HOME/.Xmodmap
+
+    [[ "$susp" ]] && bright-notif on
 
     return 0
 }
