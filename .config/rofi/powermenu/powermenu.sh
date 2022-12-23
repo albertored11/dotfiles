@@ -26,9 +26,7 @@ case $chosen in
 	;;
     $suspend)
         $HOME/.local/bin/umount-alberpi && sleep 1
-		$HOME/.local/bin/lock-screen &
-        sleep 0.2
-        systemctl suspend
+        lock-screen --off --suspend
     ;;
 	$hibernate)
 		$HOME/.local/bin/umount-alberpi && sleep 1
