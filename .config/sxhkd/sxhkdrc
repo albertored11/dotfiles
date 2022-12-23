@@ -15,7 +15,7 @@ super + e
     pcmanfm-qt
 
 # spotify
-super + shift + s
+super + s
     spotify --force-device-scale-factor=1.25
 
 # discord
@@ -66,19 +66,14 @@ XF86Audio{Prev,Next}
 # brightness up/down
 XF86MonBrightness{Up,Down}
     bright-notif {up,down}
-    #brightnessctl set 5%{+,-}
 
 # set brightness to 0
 shift + XF86MonBrightnessDown
     bright-notif off
 
 # lock screen
-super + l
-    lock-screen
-
-# turn off & lock screen
-super + alt + l
-    lock-screen & sleep 0.5; xset dpms force off
+super + {_,alt + }l
+    lock-screen{_, --off}
 
 # take screenshot (full screen/crop/active window)
 {_,shift + ,super + }Print
@@ -102,17 +97,13 @@ super + less
     xrandr --output DP-1 --auto; \
     bspc monitor DP-1 -r
 
-# (un)mount alberpi
-super + {_,shift + }u
-    {_,u}mount-alberpi d
-
 # google calendar
 super + shift + a 
     xdg-open "https://calendar.google.com"
 
 # lyrics-in-terminal
 super + shift + l
-    kitty lyrics
+    kitty sptlrx
 
 # python interpreter
 XF86Search
@@ -123,12 +114,16 @@ super + shift + p
     $HOME/.config/polybar/launch-bspwm.sh
 
 # clipboard selector
-super + {_,alt + }p
+super + {_,alt + }v
     clipster -s{_,p}
 
 # run xmodmap
 super + shift + m
     xmodmap $HOME/.Xmodmap
+
+# (un)mount alberpi
+super + {_,shift + }u
+    {_,u}mount-alberpi d
 
 #
 # bspwm hotkeys
