@@ -96,18 +96,15 @@ super + w
 XF86Sleep
     xset dpms force off
 
-# toggle hdmi sound
+# toggle hdmi sound & mirror screen
 super + less
-    hdmi-sound-toggle
-
-# mount/unmount alberpc
-super + {_,shift + } u
-    {_,u}mount-alberpc d
-
-# mirror screen
-super + greater
+    hdmi-sound-toggle; \
     xrandr --output DP-1 --auto; \
     bspc monitor DP-1 -r
+
+# (un)mount alberpi
+super + {_,shift + }u
+    {_,u}mount-alberpi d
 
 # google calendar
 super + shift + a 
@@ -117,9 +114,9 @@ super + shift + a
 super + shift + l
     kitty lyrics
 
-# ghci
+# python interpreter
 XF86Search
-    kitty ghci
+    kitty python
 
 # restart polybar
 super + shift + p
