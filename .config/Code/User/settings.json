@@ -59,5 +59,18 @@
     ],
     "update.mode": "none",
     "editor.unicodeHighlight.invisibleCharacters": false,
-    "files.autoSave": "afterDelay"
+    "editor.quickSuggestions": {
+        "comments": "off",
+        "strings": "off",
+        "other": "off"
+    },
+    "files.autoSave": "afterDelay",
+    "remote.SSH.remotePlatform": {
+        "home.herbort.me": "linux",
+        "alberpc-holcim": "linux"
+    },
+    "terminal.integrated.cursorStyle": "line",
+    "[markdown]": {
+        "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+    }
 }
