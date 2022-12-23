@@ -25,13 +25,13 @@ case $chosen in
 		systemctl reboot
 	;;
     $suspend)
-        $HOME/.local/bin/umount-alberpc && sleep 1
+        $HOME/.local/bin/umount-alberpi && sleep 1
 		$HOME/.local/bin/lock-screen &
         sleep 0.2
         systemctl suspend
     ;;
 	$hibernate)
-		$HOME/.local/bin/umount-alberpc && sleep 1
+		$HOME/.local/bin/umount-alberpi && sleep 1
 		systemctl hibernate
 	;;
     $logout)
