@@ -1,6 +1,6 @@
 function transfer
     if test (count $argv) -eq 0
-        echo "No arguments specified. Usage:\necho transfer /tmp/test.md\ncat /tmp/test.md | transfer test.md"
+        echo "No arguments specified."
         return 1
     end
 
@@ -10,15 +10,13 @@ function transfer
     ## upload stdin or file
     set file $argv[1]
 
-    #if tty -s;
-    #then
+    if tty -s
         set basefile (basename "$file" | sed -e 's/[^a-zA-Z0-9._-]/-/g')
 
-    #    if [ ! -e $file ];
-    #    then
-    #        echo "File $file doesn't exists."
-    #        return 1
-    #    fi
+        if test -e $file
+            echo "File $file doesn't exist."
+            return 1
+        end
 
         if test -d $file
             # zip directory and transfer
@@ -32,10 +30,10 @@ function transfer
             # transfer file
             curl --progress-bar --upload-file "$file" "https://transfer.sh/$basefile" >> $tmpfile
         end
-    #else
-    #    # transfer pipe
-    #    curl --progress-bar --upload-file "-" "https://transfer.sh/$file" >> $tmpfile
-    #fi
+    else
+        # transfer pipe
+        curl --progress-bar --upload-file "-" "https://transfer.sh/$file" >> $tmpfile
+    end
 
     ## cat output link
     cat $tmpfile
