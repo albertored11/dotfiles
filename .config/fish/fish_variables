@@ -2,6 +2,7 @@
 # VERSION: 3.0
 SETUVAR --export BAT_THEME:Nord
 SETUVAR --export EDITOR:vim
+SETUVAR --export LESS:\x2diR\x234
 SETUVAR --export LESS_TERMCAP_md:\x1b\x5b01\x3b31m
 SETUVAR --export LESS_TERMCAP_me:\x1b\x5b0m
 SETUVAR --export LESS_TERMCAP_se:\x1b\x5b0m
