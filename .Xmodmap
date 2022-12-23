@@ -1,3 +1,5 @@
 keycode  10 = 1 exclam 1 exclam Ccedilla exclamdown Ccedilla exclamdown 1 exclam Ccedilla exclamdown
 keycode  49 = masculine ordfeminine masculine ordfeminine ccedilla ccedilla ccedilla
 keycode  51 = backslash bar backslash bar braceright dead_breve braceright
+keycode  59 = comma semicolon comma semicolon less multiply less multiply comma semicolon less multiply
+keycode  60 = period colon period colon greater division greater division period colon greater division
