@@ -53,7 +53,7 @@ xsetroot -cursor_name left_ptr &
 xcape -e "Super_L=Super_L|Escape" &
 $HOME/.fehbg &
 $HOME/.config/polybar/launch-bspwm.sh &
-picom --experimental-backends &
+picom &
 unclutter &
 dunst &
 nextcloud &
