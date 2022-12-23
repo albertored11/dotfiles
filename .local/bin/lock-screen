@@ -2,7 +2,7 @@
 
 usage() {
 
-printf "%s" "\
+    printf "%s" "\
 usage: $(basename "$0") [options]
 
 Options:
@@ -12,7 +12,7 @@ Options:
 
 "
 
-exit 1
+    exit 1
 
 }
 
