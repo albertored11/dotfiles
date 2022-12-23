@@ -56,4 +56,4 @@ dunst &
 nextcloud &
 clipster -d &
 $HOME/.config/redshift/launch.sh &
-mount-alberpi
+mount-alberpi &
