@@ -13,27 +13,27 @@ diff=$2
 
 case "$1" in
     up)
-        amixer -q sset Master unmute && amixer -q sset Master $diff%+
+        pactl set-sink-mute @DEFAULT_SINK@ 0 && pactl set-sink-volume @DEFAULT_SINK@ +$diff%
     ;;
     down)
-        amixer -q sset Master unmute && amixer -q sset Master $diff%-
+        pactl set-sink-mute @DEFAULT_SINK@ 0 && pactl set-sink-volume @DEFAULT_SINK@ -$diff%
     ;;
     toggle)
-        amixer -q sset Master toggle
+        pactl set-sink-mute @DEFAULT_SINK@ toggle
     ;;
 esac
 
-state="$(awk -F"[][]" '/Left:/ { print $4 }' <(amixer sget Master))"
+state="$(awk '{ print $2 }' <(pactl get-sink-mute @DEFAULT_SINK@))"
 
 case "$state" in
-    off)
+    yes)
         state="!"
     ;;
-    on)
+    no)
         state=""
     ;;
 esac
 
-vol="$(awk -F"[][]" '/Left:/ { print substr($2, 1, length($2) - 1) }' <(amixer sget Master))"
+vol=$(awk 'NR==1 { print substr($5, 1, length($5) - 1) }' <(pactl get-sink-volume @DEFAULT_SINK@))
 
 echo "$vol$state" >> /tmp/xobvolume
