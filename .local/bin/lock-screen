@@ -56,14 +56,14 @@ get_args() {
 main() {
     get_args "$@"
 
-    image="$HOME/Nextcloud/Fondos de pantalla/Misty_Mountain_crop.jpg"
-    background=2E3440
-    current_line=4C566A
-    foreground=D8DEE9
-    comment=4C566A
-    pink=B48EAD
-    purple=88C0D0
-    red=BF616A
+    image="$HOME/Nextcloud/Fondos de pantalla/141843.jpg"
+    background=1e1e2e
+    current_line=313244
+    foreground=1e1e2e
+    comment=313244
+    green=a6e3a1
+    blue=74c7ec
+    red=f38ba8
     font="Inter Medium"
 
     [[ -z "$(pgrep -f ^i3lock)" ]] || exit 1
@@ -75,17 +75,17 @@ main() {
     i3lock \
         --nofork \
         --ignore-empty-password \
-        --tiling \
+        --fill \
         --image="$image" \
         --clock \
         --insidever-color=$background \
         --insidewrong-color=$background \
         --inside-color=$background \
-        --ringver-color=$pink \
+        --ringver-color=$green \
         --ringwrong-color=$red \
         --ring-color=$current_line \
         --line-uses-inside \
-        --keyhl-color=$purple \
+        --keyhl-color=$blue \
         --bshl-color=$comment \
         --separator-color=$current_line \
         --time-color=$foreground \

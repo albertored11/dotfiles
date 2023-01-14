@@ -36,6 +36,7 @@ nnoremap <C-t> :NERDTreeToggle<CR>
 let g:ycm_add_preview_to_completeopt = 0
 set completeopt-=preview
 
-" nord theme
+" catppuccin theme
 syntax enable
-colorscheme nord
+set termguicolors
+colorscheme catppuccin_mocha

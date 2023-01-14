@@ -9,7 +9,7 @@
     },
     "redhat.telemetry.enabled": true,
     "liveshare.authenticationProvider": "GitHub",
-    "workbench.colorTheme": "Nord",
+    "workbench.colorTheme": "Catppuccin Mocha",
     "editor.fontFamily": "monospace",
     "C_Cpp.intelliSenseEngine": "Tag Parser",
     "python.linting.pylintEnabled": true,
@@ -63,5 +63,10 @@
         80,
         100,
         120
-    ]
+    ],
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 0,
+    "workbench.editor.enablePreview": false,
+    "explorer.autoReveal": "focusNoScroll",
+    "catppuccin.accentColor": "sapphire"
 }
