@@ -19,7 +19,6 @@
     "files.associations": {
         "*.pl": "prolog"
     },
-    "window.zoomLevel": 0,
     "workbench.activityBar.visible": true,
     "python.pythonPath": "/usr/bin/python3",
     "editor.wordWrap": "on",
@@ -64,9 +63,16 @@
         100,
         120
     ],
-    "files.autoSave": "afterDelay",
     "files.autoSaveDelay": 0,
     "workbench.editor.enablePreview": false,
     "explorer.autoReveal": "focusNoScroll",
-    "catppuccin.accentColor": "sapphire"
+    "catppuccin.accentColor": "sapphire",
+    "remote.SSH.useLocalServer": false,
+    "remote.SSH.remotePlatform": {
+        "alberpi": "linux"
+    },
+    "[python]": {
+        "editor.formatOnType": true
+    },
+    "terminal.integrated.cursorStyle": "line"
 }
