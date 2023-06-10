@@ -62,10 +62,10 @@ override-redirect = true
 bottom = true
 
 [bar/main-bspwm]
-width = 1852
-height = 28
+width = 3740
+height = 42
 
-background = #00000000
+background = #d11e1e2e
 foreground = ${colors.text}
 
 padding-left = 5
@@ -84,6 +84,8 @@ modules-right = player-mpris-tail bspwm-hidden-local bspwm pulseaudio
 tray-position = right
 tray-padding = 2
 
+dpi = 144
+
 enable-ipc = true
 
 wm-restack = bspwm
@@ -93,12 +95,12 @@ cursor-click = pointer
 bottom = true
 
 [bar/clock-bspwm]
-width = 68
-height = 28
+width = 100
+height = 42
 
-offset-x = 1852
+offset-x = 3740
 
-background = #00000000
+background = #d11e1e2e
 foreground = ${colors.text}
 
 padding = 2
@@ -106,6 +108,8 @@ padding = 2
 font-0 = Inter,Inter Medium:style=Medium,Regular:size=14;4
 
 modules-center = date
+
+dpi = 144
 
 wm-restack = bspwm
 

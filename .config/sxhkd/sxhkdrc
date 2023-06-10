@@ -16,7 +16,7 @@ super + e
 
 # spotify
 super + s
-    spotify
+    spotify --force-device-scale-factor=1.5
 
 # discord
 super + shift + d
@@ -79,8 +79,8 @@ ctrl + XF86MonBrightness{Up,Down}
 super + {_,alt + }l
     lock-screen{_, --off}
 
-# take screenshot (full screen/crop/active window/current monitor)
-{_,shift + ,super + ,ctrl + }Print
+# take screenshot (full screen/crop/active window)
+{_,shift + ,super + }Print
     take-screenshot {crop,fullscr,activewin,mon} "$HOME/Nextcloud/Capturas de pantalla/alberpc"
 
 # suspend
@@ -122,6 +122,12 @@ super + shift + m
 # (un)mount alberpi
 super + {_,shift + }u
     {_,u}mount-alberpi d
+
+# ibus daemon
+super + p
+    pgrep -fx "ibus-daemon -rxRd" \
+    && pkill -fx "ibus-daemon -rxRd" \
+    || ibus-daemon -rxRd
 
 #
 # bspwm hotkeys
@@ -212,10 +218,6 @@ ctrl + alt + {Prior,Next}
 # focus or send to the given desktop
 super + {_,shift + }{1-9,0}
 	bspc {desktop -f,node -d} {1-9,10}
-
-# send to the next monitor
-super + masculine
-    bspc node -f -m next --follow
 
 #
 # preselect

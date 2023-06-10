@@ -15,7 +15,7 @@ My setup consists in a custom box:
 - 2 TB Seagate Barracuda HDD
 - etc.
 
-with 2x 21.5" 1920x1080 @ 60 Hz HP EliteDisplay E223 monitors.
+with 1x 27" 3840x2160 @ 60 Hz Samsung ViewFinity S8 monitor.
 
 ## screenshot
 

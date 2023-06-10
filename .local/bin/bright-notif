@@ -12,30 +12,25 @@ usage() {
 n_px=$(pgrep -f "^bash $(which $progname)" | wc -l)
 [[ $n_px -gt 2 ]] && exit 1
 
-#displays=$(ddcutil detect --terse --sleep-multiplier .03 | grep -F "I2C bus:" | awk -F '-' '{print $2}')
-#n_displays=$(echo $displays | wc -w)
-
 xobpipe="/tmp/xob-herbort-brightness"
-displays="1
-4"
-n_displays="2"
+display="4"
 
 case "$1" in
     up)
-        b="+\ $2"
+        b="+ $2"
     ;;
     down)
-        b="-\ $2"
+        b="- $2"
     ;;
     set)
         b="$2"
     ;;
     on)
-        echo $displays | xargs -n1 -P$n_displays sh -c 'ddcutil setvcp d6 1 --bus $1 --noverify' sh
+        ddcutil setvcp d6 1 --bus $display --noverify
         exit 0
     ;;
     off)
-        echo $displays | xargs -n1 -P$n_displays sh -c 'ddcutil setvcp d6 5 --bus $1' sh
+        ddcutil setvcp d6 5 --bus $display
         exit 0
     ;;
     *)
@@ -43,13 +38,11 @@ case "$1" in
     ;;
 esac
 
-conf=$(for m in $displays; do echo $m $b; done)
-
-echo $conf | xargs -n2 -P$n_displays sh -c 'ddcutil setvcp 10 $2 --bus $1 --sleep-multiplier .1' sh
+ddcutil setvcp 10 $b --bus $display --sleep-multiplier .03
 
 if [[ -p "$xobpipe" ]]; then
     if [[ "$1" != "set" ]]; then
-        b="$(cut -d ' ' -f4 <(ddcutil getvcp 10 --bus $(head -n1 <<< $displays) --terse --sleep-multiplier .1))"
+        b="$(cut -d ' ' -f4 <(ddcutil getvcp 10 --bus $display --terse --sleep-multiplier .03))"
     fi
 
     echo "$b" >> "$xobpipe"
