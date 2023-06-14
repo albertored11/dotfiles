@@ -8,6 +8,7 @@ SETUVAR FZF_LEGACY_KEYBINDINGS:0
 SETUVAR FZF_PREVIEW_DIR_CMD:ls
 SETUVAR FZF_PREVIEW_FILE_CMD:head\x20\x2dn\x2010
 SETUVAR FZF_TMUX_HEIGHT:40\x25
+SETUVAR --export GTK_IM_MODULE:ibus
 SETUVAR --export LESS:\x2diR\x234
 SETUVAR --export LESS_TERMCAP_md:\x1b\x5b01\x3b31m
 SETUVAR --export LESS_TERMCAP_me:\x1b\x5b0m
@@ -16,13 +17,14 @@ SETUVAR --export LESS_TERMCAP_so:\x1b\x5b01\x3b44\x3b33m
 SETUVAR --export LESS_TERMCAP_ue:\x1b\x5b0m
 SETUVAR --export LESS_TERMCAP_us:\x1b\x5b01\x3b32m
 SETUVAR --export PAGER:less
+SETUVAR --export QT_IM_MODULE:ibus
 SETUVAR --export QT_QPA_PLATFORMTHEME:qt5ct
 SETUVAR --export SXHKD_SHELL:/usr/bin/sh
 SETUVAR --export VISUAL:vim
 SETUVAR --export XDG_CACHE_HOME:/home/herbort/\x2ecache
 SETUVAR --export XDG_CONFIG_DIRS:/etc/xdg
 SETUVAR --export XDG_CONFIG_HOME:/home/herbort/\x2econfig
-SETUVAR --export XDG_DATA_DIRS:/usr/local/share\x3a/usr/share
+SETUVAR --export XDG_DATA_DIRS:/usr/local/share\x3a/usr/share\x3a/var/lib/snapd/desktop
 SETUVAR --export XDG_DATA_HOME:/home/herbort/\x2elocal/share
 SETUVAR --export XDG_DESKTOP_DIR:/home/herbort/Escritorio
 SETUVAR --export XDG_DOCUMENTS_DIR:/home/herbort/Documentos
@@ -30,6 +32,7 @@ SETUVAR --export XDG_DOWNLOAD_DIR:/home/herbort/Descargas
 SETUVAR --export XDG_MUSIC_DIR:/home/herbort/M\u00fasica
 SETUVAR --export XDG_PICTURES_DIR:/home/herbort/Im\u00e1genes
 SETUVAR --export XDG_VIDEOS_DIR:/home/herbort/V\u00eddeos
+SETUVAR --export XMODIFIERS:\x40im\x3dibus
 SETUVAR ZO_CMD:zo
 SETUVAR Z_CMD:z
 SETUVAR Z_DATA:/home/herbort/\x2elocal/share/z/data
