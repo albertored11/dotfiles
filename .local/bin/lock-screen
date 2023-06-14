@@ -56,10 +56,10 @@ get_args() {
 main() {
     get_args "$@"
 
-    image="$HOME/Nextcloud/Fondos de pantalla/141843.jpg"
+    image="$HOME/Nextcloud/Fondos de pantalla/378fa9_6635316_0_inv_scaled_4k.png"
     background=1e1e2e
     current_line=313244
-    foreground=1e1e2e
+    foreground=cdd6f4
     comment=313244
     green=a6e3a1
     blue=74c7ec
@@ -75,27 +75,19 @@ main() {
     i3lock \
         --nofork \
         --ignore-empty-password \
-        --fill \
+        --tiling \
         --image="$image" \
+        --screen=1 \
+        --no-unlock-indicator \
         --clock \
-        --insidever-color=$background \
-        --insidewrong-color=$background \
-        --inside-color=$background \
-        --ringver-color=$green \
-        --ringwrong-color=$red \
-        --ring-color=$current_line \
-        --line-uses-inside \
-        --keyhl-color=$blue \
-        --bshl-color=$comment \
-        --separator-color=$current_line \
         --time-color=$foreground \
         --time-str="%-H:%M" \
-        --time-pos="ix:iy-250" \
+        --time-pos="2100:1195" \
         --date-color=$foreground \
         --date-str="%a, %d de %b de %Y" \
         --time-font="$font" \
         --date-font="$font" \
-        --time-size=80 \
+        --time-size=120 \
         --date-size=20 \
         --date-pos="tx:ty+40" \
         --verif-text="" \
