@@ -70,8 +70,6 @@ main() {
 
     killall -SIGUSR1 dunst
 
-    [[ "$off" ]] && bright-notif off
-
     i3lock \
         --nofork \
         --ignore-empty-password \
@@ -102,6 +100,8 @@ main() {
         --wrong-text="" \
         --noinput-text="" \
         --no-modkey-text &
+
+    [[ "$off" ]] && sleep 0.4 && xset dpms force off &
 
     if [[ "$susp" ]]; then
         sleep 0.6
