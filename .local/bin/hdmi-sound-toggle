@@ -9,4 +9,4 @@ else
 fi
 
 echo selecting output $AUDIO_OUTPUT
-pactl set-card-profile 0 output:$AUDIO_OUTPUT+input:analog-stereo
+pactl set-card-profile 42 output:$AUDIO_OUTPUT+input:analog-stereo
