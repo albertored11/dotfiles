@@ -129,6 +129,12 @@ super + shift + m
 super + {_,shift + }u
     {_,u}mount-alberpi d
 
+# ibus daemon
+super + p
+    pgrep -fx "ibus-daemon -rxRd" \
+    && pkill -fx "ibus-daemon -rxRd" \
+    || ibus-daemon -rxRd
+
 #
 # bspwm hotkeys
 #
