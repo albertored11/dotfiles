@@ -1,2 +1,2 @@
 #!/bin/sh
-feh --no-fehbg --bg-tile --image-bg '#1e1e2e' '/home/herbort/Nextcloud/Fondos de pantalla/378fa9_6635316_catppuccin_mocha.png' 
+feh --no-fehbg --bg-fill --image-bg '#1e1e2e' '/home/herbort/Nextcloud/Fondos de pantalla/The_Legend_of_Zelda_Tears_of_the_Kingdom_3840x2160.jpg' 
