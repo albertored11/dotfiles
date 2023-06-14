@@ -59,12 +59,20 @@
     ],
     "update.mode": "none",
     "editor.unicodeHighlight.invisibleCharacters": false,
+    "editor.rulers": [
+        80,
+        100,
+        120
+    ],
     "editor.quickSuggestions": {
         "comments": "off",
         "strings": "off",
         "other": "off"
     },
     "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 0,
+    "workbench.editor.enablePreview": false,
+    "explorer.autoReveal": "focusNoScroll",
     "remote.SSH.remotePlatform": {
         "home.herbort.me": "linux",
         "alberpc-holcim": "linux"
