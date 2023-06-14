@@ -32,10 +32,6 @@ nnoremap <C-PageUp> :tabprevious<cr>
 " NERDTree
 nnoremap <C-t> :NERDTreeToggle<CR>
 
-" youcompleteme
-let g:ycm_add_preview_to_completeopt = 0
-set completeopt-=preview
-
 " nord theme
 syntax enable
 colorscheme nord
