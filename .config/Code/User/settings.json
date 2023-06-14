@@ -72,5 +72,19 @@
     "terminal.integrated.cursorStyle": "line",
     "[markdown]": {
         "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+    },
+    "diffEditor.ignoreTrimWhitespace": false,
+    "[terraform]": {
+        "editor.tabSize": 2
+    },
+    "[terraform-vars]": {
+        "editor.tabSize": 2
+    },
+    "editor.inlineSuggest.enabled": true,
+    "github.copilot.enable": {
+        "*": true,
+        "yaml": true,
+        "plaintext": true,
+        "markdown": true
     }
 }
