@@ -56,14 +56,14 @@ get_args() {
 main() {
     get_args "$@"
 
-    image="$HOME/Nextcloud/Fondos de pantalla/378fa9_6635316_0_inv_scaled_4k.png"
-    background=1e1e2e
-    current_line=313244
-    foreground=cdd6f4
-    comment=313244
-    green=a6e3a1
-    blue=74c7ec
-    red=f38ba8
+    image="$HOME/Nextcloud/Fondos de pantalla/Misty_Mountain_4K.jpg"
+    background=2E3440
+    current_line=4C566A
+    foreground=D8DEE9
+    comment=4C566A
+    pink=B48EAD
+    purple=88C0D0
+    red=BF616A
     font="Inter Medium"
 
     [[ -z "$(pgrep -f ^i3lock)" ]] || exit 1
@@ -77,17 +77,25 @@ main() {
         --ignore-empty-password \
         --tiling \
         --image="$image" \
-        --screen=1 \
-        --no-unlock-indicator \
         --clock \
+        --insidever-color=$background \
+        --insidewrong-color=$background \
+        --inside-color=$background \
+        --ringver-color=$pink \
+        --ringwrong-color=$red \
+        --ring-color=$current_line \
+        --line-uses-inside \
+        --keyhl-color=$purple \
+        --bshl-color=$comment \
+        --separator-color=$current_line \
         --time-color=$foreground \
         --time-str="%-H:%M" \
-        --time-pos="2100:1195" \
+        --time-pos="ix:iy-250" \
         --date-color=$foreground \
         --date-str="%a, %d de %b de %Y" \
         --time-font="$font" \
         --date-font="$font" \
-        --time-size=120 \
+        --time-size=80 \
         --date-size=20 \
         --date-pos="tx:ty+40" \
         --verif-text="" \

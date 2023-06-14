@@ -29,9 +29,9 @@ bspc config single_monocle          true
 bspc config automatic_scheme        alternate
 bspc config presel_feedback         false
 
-bspc config normal_border_color     "#1e1e2e"
-bspc config active_border_color     "#1e1e2e"
-bspc config focused_border_color    "#74c7ec"
+bspc config normal_border_color     "#2E3440"
+bspc config active_border_color     "#2E3440"
+bspc config focused_border_color    "#88C0D0"
 
 bspc rule -a Nextcloud:*:Nextcloud  state=floating  border=off  center=off
 bspc rule -a lxqt-archiver          state=floating

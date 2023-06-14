@@ -9,7 +9,7 @@
     },
     "redhat.telemetry.enabled": true,
     "liveshare.authenticationProvider": "GitHub",
-    "workbench.colorTheme": "Catppuccin Mocha",
+    "workbench.colorTheme": "Nord",
     "editor.fontFamily": "monospace",
     "C_Cpp.intelliSenseEngine": "Tag Parser",
     "python.linting.pylintEnabled": true,
@@ -74,5 +74,6 @@
     "[python]": {
         "editor.formatOnType": true
     },
-    "terminal.integrated.cursorStyle": "line"
+    "terminal.integrated.cursorStyle": "line",
+    "files.autoSave": "afterDelay"
 }
