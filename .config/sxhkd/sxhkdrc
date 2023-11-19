@@ -75,6 +75,10 @@ XF86MonBrightness{Up,Down}
 shift + XF86MonBrightnessDown
     bright-notif off
 
+# set brightness to min
+super + XF86MonBrightnessDown
+    bright-notif min
+
 # lock screen
 super + {_,alt + }l
     lock-screen{_, --off}

@@ -25,6 +25,9 @@ case "$1" in
         brightnessctl i -m | awk -F "," '{ print $4 }' > "$pb"
         brightnessctl -q set 0
     ;;
+    min)
+        brightnessctl -q set 1
+    ;;
 esac
 
 bright="$(awk -F "," '{ print substr($4, 1, length($4) - 1) }' <(brightnessctl i -m))"
